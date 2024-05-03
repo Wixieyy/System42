@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.AccountMakenController">
+   <children>
+      <PasswordField layoutX="226.0" layoutY="209.0" />
+      <TextField layoutX="226.0" layoutY="152.0" />
+      <PasswordField layoutX="226.0" layoutY="257.0" />
+      <Button layoutX="242.0" layoutY="302.0" mnemonicParsing="false" text="Account aanmaken" />
+      <TextField layoutX="226.0" layoutY="103.0" />
+      <Label layoutX="228.0" layoutY="80.0" text="Gebruikersnaam" />
+      <Label layoutX="228.0" layoutY="135.0" text="Email" />
+      <Label layoutX="228.0" layoutY="192.0" text="Wachtwoord" />
+      <Label layoutX="228.0" layoutY="240.0" text="Herhaal wachtwoord" />
+      <Label graphicTextGap="10.0" layoutX="161.0" layoutY="31.0" opacity="0.39" text="Maak uw account aan">
+         <font>
+            <Font name="Comic Sans MS" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
