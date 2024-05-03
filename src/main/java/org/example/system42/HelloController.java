@@ -13,16 +13,9 @@ import java.io.IOException;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    @FXML
     protected void onMaakAccountButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("accountaanmaken.fxml"));
+
         Parent newTemplate = fxmlLoader.load();
 
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
