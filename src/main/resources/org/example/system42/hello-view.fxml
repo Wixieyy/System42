@@ -12,42 +12,57 @@
 
 <AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.HelloController">
     <children>
-        <AnchorPane id="leftAnchorPane" maxHeight="600.0" maxWidth="475.0" minHeight="600.0" minWidth="475.0" prefHeight="600.0" prefWidth="475.0" style="-fx-background-color: #eee6dd;">
-         <children>
-            <ImageView fitHeight="725.0" fitWidth="507.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/bookwindow.png" />
-               </image>
-            </ImageView>
-         </children>
-        </AnchorPane>
-        <AnchorPane id="rightAnchorPane" layoutX="475.0" maxHeight="600.0" maxWidth="325.0" minHeight="600.0" minWidth="325.0" pickOnBounds="false" prefHeight="600.0" prefWidth="325.0" style="-fx-background-color: #fafafa;">
+        <AnchorPane id="leftAnchorPane" maxHeight="600.0" maxWidth="450.0" minHeight="600.0" minWidth="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #eee6dd;">
             <children>
-                <TextField layoutX="81.0" layoutY="248.0" prefHeight="25.0" prefWidth="212.0" />
-                <Button layoutX="116.0" layoutY="383.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Login" />
-                <Label layoutX="24.0" layoutY="302.0" text="Password">
+                <ImageView fitHeight="725.0" fitWidth="457.0" layoutX="-5.0" layoutY="-81.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/bookwindow.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane id="rightAnchorPane" layoutX="450.0" maxHeight="600.0" maxWidth="350.0" minHeight="600.0" minWidth="325.0" pickOnBounds="false" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <TextField id="emailField" layoutX="22.0" layoutY="237.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
                     <font>
-                        <Font name="Calibri" size="12.0" />
+                        <Font name="Calibri" size="16.0" />
+                    </font></TextField>
+                <Button layoutX="22.0" layoutY="373.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Login">
+                    <font>
+                        <Font name="Times New Roman" size="22.0" />
+                    </font></Button>
+                <Label layoutX="26.0" layoutY="291.0" text="Password">
+                    <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
                     </font>
                 </Label>
-                <Label layoutX="24.0" layoutY="252.0" text="Email">
+                <Label layoutX="26.0" layoutY="215.0" text="Email">
                     <font>
-                        <Font name="Calibri" size="12.0" />
+                        <Font name="Times New Roman Bold" size="17.0" />
                     </font>
                 </Label>
-                <Label id="titleText" graphicTextGap="10.0" layoutX="117.0" layoutY="187.0" text="Inloggen">
+                <Label id="titleText" graphicTextGap="10.0" layoutX="125.0" layoutY="177.0" text="Inloggen">
                     <font>
-                        <Font name="Calibri" size="26.0" />
+                        <Font name="Times New Roman" size="26.0" />
                     </font>
                 </Label>
-                <Hyperlink id="aanmakAccountButton" layoutX="31.0" layoutY="342.0" onAction="#onMaakAccountButtonClick" text="Aanmak account" />
-                <Hyperlink id="wachtwoordVergetenButton" layoutX="157.0" layoutY="342.0" text="Wachtwoord vergeten?" />
-                <PasswordField layoutX="81.0" layoutY="298.0" prefHeight="25.0" prefWidth="212.0" />
-            <Label layoutX="61.0" layoutY="53.0" text="System42">
-               <font>
-                  <Font name="Calibri" size="50.0" />
-               </font>
-            </Label>
+                <Hyperlink id="aanmakAccountButton" layoutX="36.0" layoutY="431.0" onAction="#onMaakAccountButtonClick" text="Aanmak account">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font></Hyperlink>
+                <Hyperlink id="wachtwoordVergetenButton" layoutX="196.0" layoutY="431.0" text="Wachtwoord vergeten">
+                    <font>
+                        <Font name="Times New Roman" size="12.0" />
+                    </font></Hyperlink>
+                <PasswordField id="passwordField" layoutX="22.0" layoutY="313.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
+                    <font>
+                        <Font size="16.0" />
+                    </font></PasswordField>
+                <Label layoutX="80.0" layoutY="53.0" text="System42">
+                    <font>
+                        <Font name="Baskerville Old Face" size="50.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
     </children>
