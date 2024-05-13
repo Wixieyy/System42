@@ -23,11 +23,11 @@
         </AnchorPane>
         <AnchorPane id="rightAnchorPane" layoutX="450.0" maxHeight="600.0" maxWidth="350.0" minHeight="600.0" minWidth="325.0" pickOnBounds="false" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #fafafa;">
             <children>
-                <TextField id="emailField" layoutX="22.0" layoutY="237.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
+                <TextField id="emailField" fx:id="emailField" layoutX="22.0" layoutY="237.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
                     <font>
                         <Font name="Calibri" size="16.0" />
                     </font></TextField>
-                <Button layoutX="22.0" layoutY="373.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Login">
+                <Button layoutX="22.0" layoutY="373.0" mnemonicParsing="false" onAction="#fillAllFields" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Login">
                     <font>
                         <Font name="Times New Roman" size="22.0" />
                     </font></Button>
@@ -54,7 +54,7 @@
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font></Hyperlink>
-                <PasswordField id="passwordField" layoutX="22.0" layoutY="313.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
+                <PasswordField id="passwordField" fx:id="passwordField" layoutX="22.0" layoutY="313.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;">
                     <font>
                         <Font size="16.0" />
                     </font></PasswordField>
@@ -63,6 +63,11 @@
                         <Font name="Baskerville Old Face" size="50.0" />
                     </font>
                 </Label>
+                <Hyperlink id="exitButton" fx:id="exitButton" alignment="CENTER" layoutX="309.0" onAction="#onExitButtonClick" prefHeight="42.0" prefWidth="42.0" text="X" textFill="RED">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Hyperlink>
             </children>
         </AnchorPane>
     </children>
