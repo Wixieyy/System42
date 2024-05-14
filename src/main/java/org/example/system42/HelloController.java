@@ -43,19 +43,20 @@ public class HelloController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    protected void fillAllFields() {
+    protected void checkAllFields() {
         String uri = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("login-gegevens");
             MongoCollection<Document> collection = database.getCollection("email");
-            Document doc = collection.find(eq("email", "shendrickwilliams@gmail.com")).first();
-            if (doc != null) {
-                emailField.setText(doc.getString("email"));
-                passwordField.setText(doc.getString("password"));
-
+            Document document = collection.find(eq("email", emailField.getText())).first();
+            if (document != null) {
+                if (passwordField.getText().equals(document.getString("password"))) {
+                    emailField.setText("nice");
+                    passwordField.setText(document.getString("password"));
+                }
             } else {
                 emailField.setText("None found");
-                passwordField.setText("None found");
+                passwordField.setText("");
             }
         }
     }
