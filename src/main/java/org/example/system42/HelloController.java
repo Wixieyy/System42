@@ -43,7 +43,7 @@ public class HelloController {
     @FXML
     private PasswordField passwordField;
     @FXML
-    protected void checkAllFields() {
+    protected void checkAccount() {
         String uri = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("login-gegevens");
