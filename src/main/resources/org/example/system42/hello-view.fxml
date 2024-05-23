@@ -27,7 +27,7 @@
                     <font>
                         <Font name="Calibri" size="16.0" />
                     </font></TextField>
-                <Button layoutX="22.0" layoutY="373.0" mnemonicParsing="false" onAction="#checkAccount" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Login">
+                <Button layoutX="22.0" layoutY="373.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Login">
                     <font>
                         <Font name="Times New Roman" size="22.0" />
                     </font></Button>
