@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ import org.bson.Document;
 import java.io.IOException;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.ne;
 
 public class HelloController {
     @FXML
@@ -64,10 +67,12 @@ public class HelloController {
         protected void onLoginButtonClick (ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
 
+            ChatPaginaController chatPaginaController = new ChatPaginaController();
+
             Parent newTemplate = fxmlLoader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(newTemplate, 800, 600));
+            stage.setScene(new Scene(newTemplate, 1000, 720));
             stage.show();
         }
 
