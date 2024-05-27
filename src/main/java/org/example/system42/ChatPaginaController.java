@@ -27,11 +27,13 @@ public class ChatPaginaController {
 
     @FXML
 
+        // make new chat tabs
     protected Tab onNieuweChatButtonClick (String title, String message)  {
 
         Tab tab = new Tab();
         tab.setText(title);
         return tab;
+
     }
 
     }
