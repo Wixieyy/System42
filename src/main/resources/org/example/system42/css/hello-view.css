@@ -1,0 +1,13 @@
+#aanmakAccountButton,
+#wachtwoordVergetenButton {
+    -fx-text-fill: #4b4b4b;
+    -fx-underline: false;
+}
+
+#exitButton {
+    -fx-underline: false;
+}
+
+#exitButton:focused {
+    -fx-focus-color: transparent;
+}
