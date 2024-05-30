@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.Login;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -9,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -21,17 +20,21 @@ import org.bson.Document;
 import java.io.IOException;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.ne;
 
 public class HelloController {
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField passwordField;
+
     @FXML
     protected void onMaakAccountButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("accountaanmaken.fxml"));
 
         Parent newTemplate = fxmlLoader.load();
 
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(newTemplate, 800 , 600));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
     }
 
@@ -40,41 +43,27 @@ public class HelloController {
         System.exit(0);
     }
 
+    @FXML
+    protected void onLoginButtonClick(ActionEvent event) throws IOException {
+//        if (new Login().login(emailField.getText(),passwordField.getText())) {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
+//
+//            Parent newTemplate = fxmlLoader.load();
+//
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setScene(new Scene(newTemplate, 1000, 720));
+//            stage.show();
+//        } else {
+//            System.out.println("Wrong credentials");
+//        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
 
-    @FXML
-    private TextField emailField;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
-    protected void checkAccount() {
-        String uri = "mongodb://localhost:27017";
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-            MongoCollection<Document> collection = database.getCollection("email");
-            Document document = collection.find(eq("email", emailField.getText())).first();
-            if (document != null) {
-                if (passwordField.getText().equals(document.getString("password"))) {
-                    emailField.setText("nice");
-                    passwordField.setText(document.getString("password"));
-                }
-            } else {
-                emailField.setText("None found");
-                passwordField.setText("");
-            }
-        }
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 1000, 720));
+        stage.show();
     }
-        @FXML
-        protected void onLoginButtonClick (ActionEvent event) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
-
-            ChatPaginaController chatPaginaController = new ChatPaginaController();
-
-            Parent newTemplate = fxmlLoader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(newTemplate, 1000, 720));
-            stage.show();
-        }
 
     @FXML
     AnchorPane rootPane;
