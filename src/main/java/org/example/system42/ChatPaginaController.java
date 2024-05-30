@@ -24,16 +24,17 @@ public class ChatPaginaController {
         stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
     }
-
     @FXML
+    protected void onProfielButtonClick (ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profiel-view.fxml"));
 
-        // make new chat tabs
-    protected Tab onNieuweChatButtonClick (String title, String message)  {
+        profielController profielController = new profielController();
 
-        Tab tab = new Tab();
-        tab.setText(title);
-        return tab;
+        Parent newTemplate = fxmlLoader.load();
 
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800,600 ));
+        stage.show();
     }
 
     }
