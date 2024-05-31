@@ -12,4 +12,6 @@ module org.example.system42 {
 
     opens org.example.system42 to javafx.fxml;
     exports org.example.system42;
+    exports classes;
+    opens classes to javafx.fxml;
 }
