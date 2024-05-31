@@ -1,39 +1,55 @@
 package org.example.system42;
 
+import classes.Login;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.bson.Document;
 
-public class AccountMakenController {
+import java.io.IOException;
 
-    protected void createAccount() {
+import static com.mongodb.client.model.Filters.eq;
+
+public class AccountMakenController {
+    @FXML
+    private TextField gebruikersnaamField;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField wachtwoordField;
+    @FXML
+    private PasswordField herhaalWachtwoordField;
+
+    public void createAccount(ActionEvent event) throws IOException {
 //        String uri = "mongodb://localhost:27017";
 //        try (MongoClient mongoClient = MongoClients.create(uri)) {
 //            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
 //            MongoCollection<Document> collection = database.getCollection("email");
-//            if (!emailField.getText().equals(collection.find("email", emailField.getText()))) {
-//                if (passwordField1.getText().equals(passwordField2.getText())) {
+//            Document document = collection.find(eq("email", emailField.getText())).first();
+//            if (document == null) {
+//                if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
 //                    collection.insertOne(new Document("gebruikersnaam", gebruikersnaamField.getText())
 //                            .append("email", emailField.getText())
-//                            .append("password", passwordField1.getText()));
+//                            .append("password", wachtwoordField.getText()));
+//                    System.out.println("account created");
 //                }
 //                else {
-//                    /*passwords dont match*/
+//                    System.out.println("Passwords dont match");
 //                }
 //            }
 //            else {
-//                /*account already exists or email already used*/
+//                System.out.println("Account already exists");
 //            }
 //        }
     }
