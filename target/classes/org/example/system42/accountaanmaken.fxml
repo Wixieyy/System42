@@ -10,23 +10,23 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.AccountMakenController">
    <children>
-      <PasswordField layoutX="246.0" layoutY="336.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
+      <PasswordField fx:id="wachtwoordField" layoutX="246.0" layoutY="336.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Calibri" size="16.0" />
          </font></PasswordField>
-      <TextField layoutX="246.0" layoutY="256.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
+      <TextField fx:id="emailField" layoutX="246.0" layoutY="256.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Calibri" size="16.0" />
          </font></TextField>
-      <PasswordField layoutX="246.0" layoutY="416.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
+      <PasswordField fx:id="herhaalWachtwoordField" layoutX="246.0" layoutY="416.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Calibri" size="16.0" />
          </font></PasswordField>
-      <Button layoutX="246.0" layoutY="480.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Account aanmaken">
+      <Button layoutX="246.0" layoutY="480.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15px;" text="Account aanmaken">
          <font>
             <Font name="Times New Roman" size="22.0" />
          </font></Button>
-      <TextField layoutX="246.0" layoutY="176.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
+      <TextField fx:id="gebruikersnaamField" layoutX="246.0" layoutY="176.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 15;">
          <font>
             <Font name="Calibri" size="16.0" />
          </font></TextField>
