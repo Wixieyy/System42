@@ -23,4 +23,15 @@ public class ProfielBewerkenController {
         stage.show();
     }
 
+    @FXML
+    protected void onLogoutButtonClick (ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
+        stage.show();
+    }
+
 }

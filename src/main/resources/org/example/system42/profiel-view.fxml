@@ -15,13 +15,19 @@
             <Font name="Times New Roman" size="68.0" />
          </font>
       </Text>
-      <MenuButton layoutX="608.0" layoutY="23.0" mnemonicParsing="false" text="Taal">
+      <MenuButton layoutX="528.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Taal">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#taalEnglish" text="English" />
           <MenuItem mnemonicParsing="false" onAction="#taalNederlands" text="Nederlands" />
         </items>
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
       </MenuButton>
-      <Button layoutX="713.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Ga terug" />
+      <Button layoutX="716.0" layoutY="21.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="30.0" prefWidth="70.0" text="Ga terug">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font></Button>
       <Button layoutX="277.0" layoutY="441.0" mnemonicParsing="false" onAction="#onProfielbewerkenButton" prefHeight="59.0" prefWidth="180.0" style="-fx-background-radius: 15;" text="Verander profiel">
          <font>
             <Font name="Times New Roman" size="20.0" />
@@ -37,7 +43,12 @@
             <Font name="Times New Roman" size="27.0" />
          </font>
       </Text>
-      <TextField fx:id="gebrukersnaamField" layoutX="271.0" layoutY="181.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15; -fx-background-color: 0;" />
-      <TextField fx:id="emailField" layoutX="271.0" layoutY="309.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15; -fx-background-color: 0;" />
+      <TextField fx:id="gebrukersnaamField" layoutX="271.0" layoutY="181.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15; -fx-background-color: transparent;" />
+      <TextField fx:id="emailField" layoutX="271.0" layoutY="309.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15; -fx-background-color: transparent;" />
+      <Button layoutX="607.0" layoutY="21.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="30.0" prefWidth="100.0" text="Uitloggen">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
