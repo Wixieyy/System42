@@ -46,11 +46,11 @@
                         <Font name="Times New Roman" size="26.0" />
                     </font>
                 </Label>
-                <Hyperlink id="aanmakAccountButton" layoutX="36.0" layoutY="431.0" onAction="#onMaakAccountButtonClick" text="Aanmak account">
+                <Hyperlink id="aanmakAccountButton" layoutX="36.0" layoutY="431.0" onAction="#onMaakAccountButtonClick" text="Maak een account aan">
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font></Hyperlink>
-                <Hyperlink id="wachtwoordVergetenButton" layoutX="196.0" layoutY="431.0" text="Wachtwoord vergeten">
+                <Hyperlink id="wachtwoordVergetenButton" layoutX="196.0" layoutY="431.0" onAction="#onWachtwoordVergetenButtonClick" text="Wachtwoord vergeten">
                     <font>
                         <Font name="Times New Roman" size="12.0" />
                     </font></Hyperlink>
