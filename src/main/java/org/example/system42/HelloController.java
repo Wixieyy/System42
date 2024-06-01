@@ -66,6 +66,18 @@ public class HelloController {
     }
 
     @FXML
+    protected void onWachtwoordVergetenButtonClick(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("wachtwoordvergeten-view.fxml"));
+
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
+        stage.show();
+    }
+
+    @FXML
     AnchorPane rootPane;
 
     public void requestFocusOnRoot() {
