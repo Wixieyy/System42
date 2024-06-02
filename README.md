@@ -47,6 +47,7 @@ An internal company AI Assistant with a GUI that allows employees sends prompts 
 <p float="middle">
   <img src="https://www.qfs.de/fileadmin/Webdata/logos-icons/JavaFX.png" alt="javaFX" width="auto" height="120">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="120" height="120">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" alt="github" width="120" height="auto">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="auto" height="120"/>
   <img src="https://static.wikia.nocookie.net/logopedia/images/8/8f/GitHub_Pride.svg/revision/latest?cb=20221005121138" alt="github" width="120" height="auto">
 </p>
