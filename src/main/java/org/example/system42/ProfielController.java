@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class profielController {
+public class ProfielController {
 
 
     @FXML
@@ -23,6 +23,30 @@ public class profielController {
         stage.setScene(new Scene(newTemplate, 1000, 720));
         stage.show();
     }
+
+    @FXML
+    protected void onProfielbewerkenButton(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profielbewerken-view.fxml"));
+
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
+        stage.show();
+    }
+
+    @FXML
+    protected void onLogoutButtonClick (ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+
+        Parent newTemplate = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
+        stage.show();
+    }
+
+
 
     @FXML
     public void taalEnglish(ActionEvent actionEvent) {
