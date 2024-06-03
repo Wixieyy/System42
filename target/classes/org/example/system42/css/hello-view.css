@@ -54,3 +54,12 @@
 #exitButton:focused {
     -fx-focus-color: transparent;
 }
+
+.AnchorPane {
+    -fx-background-color: linear-gradient(to top right, rgba(255,41,255,1) 0%, rgba(0,0,255,1) 100%);
+}
+
+#nieuweSessieButton, #nieuweSessieButton:hover, #nieuweSessieButton:pressed, #nieuweSessieButton:focused {
+    -fx-font-family: 'DINPro-Bold';
+    -fx-font-size: 22px;
+}

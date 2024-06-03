@@ -21,8 +21,9 @@ public class ChatPaginaController {
     protected void onSessieButtonClicked(){
         sessieBox.setSpacing(5);
         Button button = new Button("Sessie");
-        button.setPrefWidth(245);
+        button.setPrefWidth(222);
         button.setPrefHeight(40);
+        button.setStyle("-fx-background-color: #f2f2f2; -fx-border-color: #000000; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-cursor: hand;");
         sessieBox.getChildren().add(button);
     }
 
@@ -53,7 +54,5 @@ public class ChatPaginaController {
     @FXML
     protected void onVerstuurButtonClick (ActionEvent event) throws IOException {
 
-
     }
-
-    }
+}
