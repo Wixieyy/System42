@@ -38,6 +38,8 @@ public class HelloController {
     private Rectangle color1;
     @FXML
     private Rectangle color2;
+    @FXML
+    private TextField passwordTextField;
 
     @FXML
     private void initialize() {
@@ -77,13 +79,13 @@ public class HelloController {
 //        } else {
 //            System.out.println("Wrong credentials");
 //        }
-       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
 
-       Parent newTemplate = fxmlLoader.load();
+        Parent newTemplate = fxmlLoader.load();
 
-       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-       stage.setScene(new Scene(newTemplate, 1000, 720));
-       stage.show();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 1000, 720));
+        stage.show();
     }
 
     @FXML
@@ -108,6 +110,23 @@ public class HelloController {
     protected void onPasswordFocused() {
         color2.setStyle("-fx-fill: #ff29ff");
         color1.setStyle("-fx-fill: #ffffff");
+    }
+
+    @FXML
+    protected void onToonWachtwoordCheckBoxClicked() {
+        if (toonWachtwoordCheckBox.isSelected()) {
+            passwordTextField.setText(passwordField.getText());
+            passwordField.setOpacity(0);
+            passwordField.setDisable(true);
+            passwordTextField.setDisable(false);
+            passwordTextField.setOpacity(1);
+        } else {
+            passwordField.setText(passwordTextField.getText());
+            passwordTextField.setOpacity(0);
+            passwordTextField.setDisable(true);
+            passwordField.setDisable(false);
+            passwordField.setOpacity(1);
+        }
     }
 
     @FXML

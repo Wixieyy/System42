@@ -32,8 +32,13 @@
     -fx-font-size: 14px;
 }
 
-.text-field, #passwordField {
+.text-field, #passwordField, #passwordTextField {
     -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+#passwordTextField {
+    -fx-border-color: white;
 }
 
 #aanmakAccountButton,
