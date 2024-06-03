@@ -35,7 +35,7 @@ public class ProfielController {
 
     @FXML
     public void initialize() {
-        populateFields(Login.gebruikerID);
+//        populateFields(Login.gebruikerID);
 
     }
 
