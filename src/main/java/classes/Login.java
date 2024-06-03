@@ -5,14 +5,15 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import static com.mongodb.client.model.Filters.eq;
 
 public class Login {
-    protected Gebruiker gebruiker;
+    public static ObjectId gebruikerID;
 
-    public void wachtwoordVergeten(String gebruikerWachtwoord) {
-        // Your logic here
+    public static void setGebruikerID(ObjectId gebruikerID) {
+        Login.gebruikerID = gebruikerID;
     }
 
     public boolean login(String email, String password) {
@@ -22,7 +23,11 @@ public class Login {
             MongoCollection<Document> collection = database.getCollection("email");
             Document document = collection.find(eq("email", email)).first();
             if (document != null) {
-                return password.equals(document.getString("password"));
+                boolean passwordMatches = password.equals(document.getString("password"));
+                if (passwordMatches) {
+                    setGebruikerID(document.getObjectId("_id"));
+                }
+                return passwordMatches;
             }
         }
         return false;

@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.Gebruiker;
 import classes.Login;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -13,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.bson.Document;
 
@@ -32,26 +32,26 @@ public class AccountMakenController {
     private PasswordField herhaalWachtwoordField;
 
     public void createAccount(ActionEvent event) throws IOException {
-//        String uri = "mongodb://localhost:27017";
-//        try (MongoClient mongoClient = MongoClients.create(uri)) {
-//            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-//            MongoCollection<Document> collection = database.getCollection("email");
-//            Document document = collection.find(eq("email", emailField.getText())).first();
-//            if (document == null) {
-//                if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
-//                    collection.insertOne(new Document("gebruikersnaam", gebruikersnaamField.getText())
-//                            .append("email", emailField.getText())
-//                            .append("password", wachtwoordField.getText()));
-//                    System.out.println("account created");
-//                }
-//                else {
-//                    System.out.println("Passwords dont match");
-//                }
-//            }
-//            else {
-//                System.out.println("Account already exists");
-//            }
-//        }
+        String uri = "mongodb://localhost:27017";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
+            MongoCollection<Document> collection = database.getCollection("email");
+            Document document = collection.find(eq("email", emailField.getText())).first();
+            if (document == null) {
+                if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
+                    collection.insertOne(new Document("gebruikersnaam", gebruikersnaamField.getText())
+                            .append("email", emailField.getText())
+                            .append("password", wachtwoordField.getText()));
+                    System.out.println("account created");
+                }
+                else {
+                    System.out.println("Passwords dont match");
+                }
+            }
+            else {
+                System.out.println("Account already exists");
+            }
+        }
     }
 
     @FXML

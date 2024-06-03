@@ -1,13 +1,8 @@
 package classes;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.bson.Document;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -21,10 +16,16 @@ public class Gebruiker {
     private String gebruikerEmail;
     private String gebruikerWachtwoord;
     private int gebruikerID;
+    
 
+    public Gebruiker(String gebruikerNaam, String gebruikerEmail, String gebruikerWachtwoord) {
+        this.gebruikerNaam = gebruikerNaam;
+        this.gebruikerEmail = gebruikerEmail;
+        this.gebruikerWachtwoord = gebruikerWachtwoord;
+    }
 
     public String getGebruikerNaam() {
-        return gebruikerNaam;
+        return "testing";
     }
 
     public void setGebruikerNaam(String gebruikerNaam) {
@@ -35,7 +36,7 @@ public class Gebruiker {
         return gebruikerEmail;
     }
 
-    public void setGebruikerEmail() {
+    public void setGebruikerEmail(String email) {
 
     }
 
