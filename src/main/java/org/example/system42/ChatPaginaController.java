@@ -14,20 +14,18 @@ import java.io.IOException;
 
 
 public class ChatPaginaController {
-
-    @FXML
-    private Button nieuweSessieButton;
-
     @FXML
     private VBox sessieBox;
 
     @FXML
     protected void onSessieButtonClicked(){
-        System.out.println("test");
-
-        sessieBox.getChildren().add(new Button("test"));
-
+        sessieBox.setSpacing(5);
+        Button button = new Button("Sessie");
+        button.setPrefWidth(245);
+        button.setPrefHeight(40);
+        sessieBox.getChildren().add(button);
     }
+
     @FXML
     protected void onLogoutButtonClick (ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
