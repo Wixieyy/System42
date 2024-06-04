@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,6 +32,26 @@ public class AccountMakenController {
     private PasswordField wachtwoordField;
     @FXML
     private PasswordField herhaalWachtwoordField;
+    @FXML
+    private TextField wachtwoordTextField;
+    @FXML
+    private TextField herhaalWachtwoordTextField;
+    @FXML
+    private CheckBox toonWachtwoordCheckBox;
+    @FXML
+    private Button maakAccountButton;
+
+    @FXML
+    private void initialize() {
+        gebruikersnaamField.setStyle("-fx-font-size: 16px;");
+        emailField.setStyle("-fx-font-size: 16px;");
+        wachtwoordField.setStyle("-fx-font-size: 16px;");
+        herhaalWachtwoordField.setStyle("-fx-font-size: 16px;");
+        wachtwoordTextField.setStyle("-fx-font-size: 18px;");
+        herhaalWachtwoordTextField.setStyle("-fx-font-size: 18px;");
+        toonWachtwoordCheckBox.setStyle("-fx-font-size: 14px;");
+        maakAccountButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
+    }
 
     public void createAccount(ActionEvent event) throws IOException {
         String uri = "mongodb://localhost:27017";
@@ -55,6 +77,35 @@ public class AccountMakenController {
     }
 
     @FXML
+    protected void onToonWachtwoordCheckBoxClicked() {
+        if (toonWachtwoordCheckBox.isSelected()) {
+            wachtwoordTextField.setText(wachtwoordField.getText());
+            wachtwoordField.setOpacity(0);
+            wachtwoordField.setDisable(true);
+            wachtwoordTextField.setDisable(false);
+            wachtwoordTextField.setOpacity(1);
+
+            herhaalWachtwoordTextField.setText(herhaalWachtwoordField.getText());
+            herhaalWachtwoordField.setOpacity(0);
+            herhaalWachtwoordField.setDisable(true);
+            herhaalWachtwoordTextField.setDisable(false);
+            herhaalWachtwoordTextField.setOpacity(1);
+        } else {
+            wachtwoordField.setText(wachtwoordTextField.getText());
+            wachtwoordTextField.setOpacity(0);
+            wachtwoordTextField.setDisable(true);
+            wachtwoordField.setDisable(false);
+            wachtwoordField.setOpacity(1);
+
+            herhaalWachtwoordField.setText(herhaalWachtwoordTextField.getText());
+            herhaalWachtwoordTextField.setOpacity(0);
+            herhaalWachtwoordTextField.setDisable(true);
+            herhaalWachtwoordField.setDisable(false);
+            herhaalWachtwoordField.setOpacity(1);
+        }
+    }
+
+    @FXML
     protected void onExitButtonClick() {
         System.exit(0);
     }
@@ -69,6 +120,7 @@ public class AccountMakenController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(newTemplate, 800, 600));
             stage.show();
+            stage.centerOnScreen();
         } catch (Exception e) {
             e.printStackTrace();
         }

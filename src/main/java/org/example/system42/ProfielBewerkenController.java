@@ -21,6 +21,7 @@ public class ProfielBewerkenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -32,6 +33,7 @@ public class ProfielBewerkenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
+        stage.centerOnScreen();
     }
 
 }
