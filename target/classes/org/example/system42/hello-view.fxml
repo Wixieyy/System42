@@ -18,9 +18,9 @@
     <children>
         <AnchorPane id="leftAnchorPane" maxHeight="600.0" maxWidth="450.0" minHeight="600.0" minWidth="413.0" prefHeight="600.0" prefWidth="413.0" style="-fx-background-color: #eee6dd;">
             <children>
-                <ImageView fx:id="backgroundImage" fitHeight="725.0" fitWidth="457.0" layoutX="-45.0" layoutY="-81.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="backgroundImage" fitHeight="619.0" fitWidth="425.0" layoutX="-7.0" layoutY="-14.0" pickOnBounds="true">
                     <image>
-                        <Image url="@img/bookwindow.png" />
+                        <Image url="@img/loginbackground.jpg" />
                     </image>
                 </ImageView>
             </children>
@@ -67,9 +67,9 @@
                   <Insets />
                </opaqueInsets>
                 </PasswordField>
-                <Label fx:id="LoginTitle" layoutX="82.0" layoutY="31.0" style="-fx-font-family: DINPro-Bold;" text="System42">
+                <Label fx:id="LoginTitle" layoutX="82.0" layoutY="31.0" text="System42">
                     <font>
-                        <Font name="Arial" size="50.0" />
+                        <Font name="DINPro-Bold" size="50.0" />
                     </font>
                 </Label>
                 <Hyperlink id="exitButton" fx:id="exitButton" alignment="CENTER" layoutX="349.0" onAction="#onExitButtonClick" prefHeight="42.0" prefWidth="42.0" text="X" textFill="RED">

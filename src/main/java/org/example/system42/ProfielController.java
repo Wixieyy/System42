@@ -64,6 +64,7 @@ public class ProfielController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 1000, 720));
         stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -75,6 +76,7 @@ public class ProfielController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
+        stage.centerOnScreen();
     }
 
     @FXML
@@ -86,6 +88,7 @@ public class ProfielController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
+        stage.centerOnScreen();
     }
 
 
