@@ -57,23 +57,40 @@ An internal company AI Assistant with a GUI that allows employees sends prompts 
 
 <img src="#" alt="temp" width="auto" height="auto" style="max-width: 100%;">
 
-## Run Locally
+## Installation
 
+### Prerequisites
+- Java Development Kit (JDK): Ensure you have JDK 11 or later installed.
+- Maven: Install Apache Maven.
+- MongoDB: Install and run MongoDB locally or have access to a MongoDB server.
+- Git: Install Git.
+
+
+### Steps to clone & run
 Clone the project
-
 ```bash
-  git clone https://github.com/Wixieyy/System42.git
+git clone https://github.com/Wixieyy/System42.git
+cd System42
 ```
 
-Install MongoDB Community Server
+Ensure MongoDB is running on the default port (27017)
 ```
-https://www.mongodb.com/try/download/community
+mongod
 ```
 
-Go to the project directory
+Seed the database (optional)
+```
+mongo seed-script.js
+```
 
-```bash
-  cd System42
+Build the project
+```
+mvn clean install
+```
+
+Run the project
+```
+mvn javafx:run
 ```
 
 
@@ -85,7 +102,7 @@ Go to the project directory
 
 - [x] Accessing Local Databases
 
-- [ ] Accessing External Databases
+- [x] Accessing External Databases
 
 - [ ] Implement Keyword Search
 
