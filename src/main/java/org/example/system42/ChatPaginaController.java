@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
@@ -35,11 +37,17 @@ public class ChatPaginaController {
     private static JSONObject responses;
     private int sessionCounter = 0;
     private Map<Integer, VBox> sessions = new HashMap<>();
+    private Map<Integer, Button> sessionButtons = new HashMap<>();
     private int currentSessionId = -1;
 
     @FXML
     public void initialize() {
         loadResponses();
+        chatBox.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                onVerstuurButtonClick(null);
+            }
+        });
     }
 
     @FXML
@@ -55,6 +63,7 @@ public class ChatPaginaController {
 
         VBox sessionBox = new VBox();
         sessions.put(newSessionId, sessionBox);
+        sessionButtons.put(newSessionId, button);
         button.setOnAction(e -> switchToSession(newSessionId));
 
         sessieBox.getChildren().add(button);
@@ -62,10 +71,28 @@ public class ChatPaginaController {
     }
 
     @FXML
+    protected void onWijzigenSessieButtonClicked() {
+        if (currentSessionId != -1) {
+            TextField renameField = new TextField();
+            renameField.setPromptText("New session name");
+            sessieBox.getChildren().add(renameField);
+            renameField.setOnAction(event -> {
+                String newName = renameField.getText();
+                if (!newName.trim().isEmpty()) {
+                    Button sessionButton = sessionButtons.get(currentSessionId);
+                    sessionButton.setText(newName);
+                    sessieBox.getChildren().remove(renameField);
+                }
+            });
+        }
+    }
+
+    @FXML
     protected void onVerwijderSessieButtonClick() {
         if (currentSessionId != -1) {
             sessions.remove(currentSessionId);
             sessieBox.getChildren().removeIf(node -> node.getId().equals("sessionButton" + currentSessionId));
+            sessionButtons.remove(currentSessionId);
             chatArea.clear();
             currentSessionId = -1;
             // Switch to the next available session if any
@@ -87,15 +114,11 @@ public class ChatPaginaController {
     }
 
     @FXML
-    protected void onProfielButtonClick (ActionEvent event) throws IOException {
+    protected void onProfielButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profiel-view.fxml"));
-
-        ProfielController profielController = new ProfielController();
-
         Parent newTemplate = fxmlLoader.load();
-
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(newTemplate, 800,600 ));
+        stage.setScene(new Scene(newTemplate, 800, 600));
         stage.show();
         stage.centerOnScreen();
     }
