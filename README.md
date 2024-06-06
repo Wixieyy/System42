@@ -98,17 +98,17 @@ mvn javafx:run
 
 - [x] Implement Data Modification Feature
 
-- [ ] Enable Offline Functionality
+- [x] Enable Offline Functionality
 
 - [x] Accessing Local Databases
 
 - [x] Accessing External Databases
 
-- [ ] Implement Keyword Search
+- [x] Implement Keyword Search
 
-- [ ] Implement Conversation Naming
+- [x] Implement Conversation Naming
 
-- [ ] Develop Tabbed Interface
+- [x] Develop Tabbed Interface
 
 ## Support
 
