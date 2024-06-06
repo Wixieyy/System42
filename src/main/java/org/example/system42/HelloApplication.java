@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.centerOnScreen();
+        stage.centerOnScreen()
         stage.show();
 
         root.requestFocus();

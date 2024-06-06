@@ -22,7 +22,7 @@
       </ScrollPane>
       <AnchorPane layoutX="241.0" prefHeight="720.0" prefWidth="759.0">
          <children>
-            <TextField layoutX="81.0" layoutY="655.0" prefHeight="50.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-border-color: #c6c6c6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+            <TextField fx:id="chatBox" layoutX="81.0" layoutY="655.0" prefHeight="50.0" prefWidth="600.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-border-color: #c6c6c6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
                <font>
                   <Font name="DINPro-Bold" size="22.0" />
                </font></TextField>
@@ -42,14 +42,14 @@
             </Text>
             <ScrollPane hbarPolicy="NEVER" layoutX="22.0" layoutY="49.0" prefHeight="590.0" prefWidth="722.0" vbarPolicy="NEVER">
                <content>
-                  <TextArea fx:id="chatArea" prefHeight="589.0" prefWidth="720.0" text="Test123" wrapText="true">
+                  <TextArea fx:id="chatArea" editable="false" prefHeight="589.0" prefWidth="720.0" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextArea>
                </content>
             </ScrollPane>
-            <Button fx:id="verstuurButton" layoutX="688.0" layoutY="655.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: FF29FF; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 2; -fx-border-insets: -1; -fx-border-color: black;" text="→" textAlignment="CENTER">
+            <Button fx:id="verstuurButton" layoutX="688.0" layoutY="655.0" mnemonicParsing="false" onAction="#onVerstuurButtonClick" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: FF29FF; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 2; -fx-border-insets: -1; -fx-border-color: black;" text="→" textAlignment="CENTER">
                <font>
                   <Font name="Century" size="15.0" />
                </font>
@@ -59,6 +59,11 @@
             <Button fx:id="addDocumentButton" layoutX="22.0" layoutY="655.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2;" text="📎" textAlignment="CENTER">
                <font>
                   <Font name="Century" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="verwijderSessieButton" layoutX="33.0" layoutY="6.0" mnemonicParsing="false" onAction="#onVerwijderSessieButtonClick" prefHeight="33.0" prefWidth="163.0" style="-fx-background-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-color: #f06969;" text="Verwijder sessie" textFill="WHITE">
+               <font>
+                  <Font name="DINPro-Bold" size="15.0" />
                </font>
             </Button>
          </children>
