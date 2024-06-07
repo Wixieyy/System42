@@ -1,6 +1,7 @@
 package org.example.system42;
 
 import classes.Gebruiker;
+import classes.LocalizationHelper;
 import classes.Login;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import org.bson.Document;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -40,6 +42,25 @@ public class AccountMakenController {
     private CheckBox toonWachtwoordCheckBox;
     @FXML
     private Button maakAccountButton;
+
+    @FXML
+    private TextField usernameField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private PasswordField repeatPasswordField;
+
+
+    @FXML
+    private Button createAccountButton;
+
+    @FXML
+    private CheckBox showPasswordCheckBox;
+
+    private ResourceBundle bundle;
+
 
     @FXML
     private void initialize() {
@@ -114,6 +135,7 @@ public class AccountMakenController {
     protected void onBackButtonClick(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            fxmlLoader.setResources(ResourceBundle.getBundle("languages.lan", LocalizationHelper.getCurrentLocale()));
 
             Parent newTemplate = fxmlLoader.load();
 
