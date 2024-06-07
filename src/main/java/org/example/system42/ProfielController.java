@@ -53,7 +53,7 @@ public class ProfielController {
         MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
         Document document = collection.find(eq("_id", gebruikerID)).first();
         if (document != null) {
-            accountIDField.setText(gebruikerID.toString());
+            accountIDField.setText(String.valueOf(document.get("_id")));
             gebruikersnaamField.setText(document.getString("gebruikersnaam"));
             emailField.setText(document.getString("email"));
             beroepField.setText("Onbekend");
