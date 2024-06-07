@@ -1,6 +1,7 @@
 package org.example.system42;
 
 import classes.ReaderWriter;
+import classes.Sessie;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -30,8 +31,7 @@ public class ChatPaginaController {
     private TextArea chatArea;
 
     private int sessionCounter = 0;
-    private Map<Integer, VBox> sessions = new HashMap<>();
-    private Map<Integer, Button> sessionButtons = new HashMap<>();
+    private Map<Integer, Sessie> sessions = new HashMap<>();
     private int currentSessionId = -1;
 
     @FXML
@@ -48,20 +48,13 @@ public class ChatPaginaController {
     protected void onSessieButtonClicked() {
         sessieBox.setSpacing(5);
         int newSessionId = ++sessionCounter;
-        Button button = new Button("Sessie " + newSessionId);
-        button.setPrefWidth(212);
-        button.setPrefHeight(40);
+        Sessie newSession = new Sessie(newSessionId, "Sessie " + newSessionId);
+        newSession.getSessionButton().setOnAction(e -> switchToSession(newSessionId));
+
+        sessions.put(newSessionId, newSession);
         sessieBox.setPadding(new Insets(6, 0, 0, 6));
-        button.setStyle("-fx-background-color: #f2f2f2; -fx-border-color: #000000; -fx-border-width: 1px; -fx-border-radius: 5px; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-cursor: hand;");
-        button.setId("sessionButton" + newSessionId); // Create a unique ID for each button
-
-        VBox sessionBox = new VBox();
-        sessions.put(newSessionId, sessionBox);
-        sessionButtons.put(newSessionId, button);
-        button.setOnAction(e -> switchToSession(newSessionId));
-
-        sessieBox.getChildren().add(button);
-        switchToSession(newSessionId); // Switch to the newly created session
+        sessieBox.getChildren().add(newSession.getSessionButton());
+        switchToSession(newSessionId);
     }
 
     @FXML
@@ -73,8 +66,8 @@ public class ChatPaginaController {
             renameField.setOnAction(event -> {
                 String newName = renameField.getText();
                 if (!newName.trim().isEmpty()) {
-                    Button sessionButton = sessionButtons.get(currentSessionId);
-                    sessionButton.setText(newName);
+                    Sessie currentSession = sessions.get(currentSessionId);
+                    currentSession.setName(newName);
                     sessieBox.getChildren().remove(renameField);
                 }
             });
@@ -86,10 +79,9 @@ public class ChatPaginaController {
         if (currentSessionId != -1) {
             sessions.remove(currentSessionId);
             sessieBox.getChildren().removeIf(node -> node.getId().equals("sessionButton" + currentSessionId));
-            sessionButtons.remove(currentSessionId);
             chatArea.clear();
             currentSessionId = -1;
-            // Switch to the next available session if any
+
             if (!sessions.isEmpty()) {
                 Integer nextSessionId = sessions.keySet().iterator().next();
                 switchToSession(nextSessionId);
@@ -129,21 +121,21 @@ public class ChatPaginaController {
         chatArea.appendText("Assistant: " + response + "\n\n");
         chatBox.clear();
 
-        VBox currentSessionBox = sessions.get(currentSessionId);
-        if (currentSessionBox != null) {
+        Sessie currentSession = sessions.get(currentSessionId);
+        if (currentSession != null) {
             TextArea textArea = new TextArea("Gebruiker: " + message + "\nA.I. Assistant: " + response + "\n");
             textArea.setEditable(false);
             textArea.setWrapText(true);
-            currentSessionBox.getChildren().add(textArea);
+            currentSession.getSessionBox().getChildren().add(textArea);
         }
     }
 
     private void switchToSession(int sessionId) {
         currentSessionId = sessionId;
-        VBox sessionBox = sessions.get(sessionId);
+        Sessie session = sessions.get(sessionId);
         chatArea.clear();
-        if (sessionBox != null) {
-            sessionBox.getChildren().forEach(node -> chatArea.appendText(((TextArea) node).getText()));
+        if (session != null) {
+            session.getSessionBox().getChildren().forEach(node -> chatArea.appendText(((TextArea) node).getText()));
         }
     }
 
