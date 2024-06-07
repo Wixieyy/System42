@@ -5,15 +5,31 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
 public class Sessie {
+    private Gebruiker gebruiker;
+    private String message;
+    private String onderwerp;
+    private int tabNummer;
 
-    @FXML
-    private Button nieuweSessieButton;
+    public String createUserPrompt(Gebruiker gebruiker) {
 
-    @FXML
-    private VBox sessieBox;
+        return null;
+    }
 
-    protected void onSessieButtonClicked(){
+    public void createTab(String onderwerp) {
 
-        System.out.println("test");
+    }
+
+    public Message createMessage(String vraag, String antwoord) {
+
+        return null;
+    }
+
+    public void stuurAntwoord() {
+
+    }
+
+    public String updateTaal() {
+
+        return null;
     }
 }

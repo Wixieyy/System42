@@ -32,4 +32,8 @@ public class Login {
         }
         return false;
     }
+
+    public void wachtwoordVergeten(String gebruikersWachtwoord) {
+
+    }
 }
