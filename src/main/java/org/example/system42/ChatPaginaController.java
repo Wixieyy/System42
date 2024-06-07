@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.ReaderWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -9,18 +10,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +29,6 @@ public class ChatPaginaController {
     @FXML
     private TextArea chatArea;
 
-    private static JSONObject responses;
     private int sessionCounter = 0;
     private Map<Integer, VBox> sessions = new HashMap<>();
     private Map<Integer, Button> sessionButtons = new HashMap<>();
@@ -154,21 +148,10 @@ public class ChatPaginaController {
     }
 
     private void loadResponses() {
-        JSONParser parser = new JSONParser();
-        try (InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream("/org/example/system42/responses.json"))) {
-            responses = (JSONObject) parser.parse(reader);
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
+        ReaderWriter.OfflineJsonLoader();
     }
 
     private static String getResponse(String userInput) {
-        for (Object key : responses.keySet()) {
-            String keyword = (String) key;
-            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
-                return (String) responses.get(keyword);
-            }
-        }
-        return "Sorry, I don't have that in my database!";
+        return ReaderWriter.OfflineJsonReader(userInput);
     }
 }
