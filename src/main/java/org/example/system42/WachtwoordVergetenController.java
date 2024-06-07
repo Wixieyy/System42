@@ -1,17 +1,19 @@
 package org.example.system42;
 
+import classes.LocalizationHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class WachtwoordVergetenController {
     @FXML
@@ -20,8 +22,46 @@ public class WachtwoordVergetenController {
     private TextField emailField;
 
     @FXML
+    private Text forgotPasswordText;
+
+    @FXML
+    private TextField usernameField;
+
+    @FXML
+    private Button opslaanButton;
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Text emailText;
+
+    @FXML
+    private Label gebruikersnaamLabel;
+
+
+    private ResourceBundle bundle;
+
+    public void initialize() {
+        setLanguage(LocalizationHelper.getCurrentLocale());
+    }
+
+    @FXML
+    public void setLanguage(Locale locale) {
+        bundle = ResourceBundle.getBundle("languages.lan");
+
+
+        forgotPasswordText.setText(bundle.getString("text.titel"));
+        emailText.setText(bundle.getString("text.instructions"));
+        opslaanButton.setText(bundle.getString("button.save"));
+        loginButton.setText(bundle.getString("button.login_page"));
+        gebruikersnaamLabel.setText(bundle.getString("label.gebruikersnaam"));
+    }
+
+    @FXML
     protected void onLoginpaginaButtonClick (ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("languages.lan", LocalizationHelper.getCurrentLocale()));
 
         Parent newTemplate = fxmlLoader.load();
 
@@ -36,6 +76,7 @@ public class WachtwoordVergetenController {
        // create logic to save changes to the database
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("languages.lan", LocalizationHelper.getCurrentLocale()));
 
         Parent newTemplate = fxmlLoader.load();
 

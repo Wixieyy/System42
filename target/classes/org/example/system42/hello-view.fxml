@@ -39,7 +39,7 @@
                     <font>
                         <Font name="Times New Roman" size="22.0" />
                     </font></Button>
-                <Label layoutX="39.0" layoutY="267.0" style="-fx-font-family: DINPro-Light;" text="Email" textFill="#c6c6c6">
+                <Label fx:id="emailLabel" layoutX="39.0" layoutY="267.0" style="-fx-font-family: DINPro-Light;" text="Email" textFill="#c6c6c6">
                     <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                     </font>
@@ -77,17 +77,17 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Hyperlink>
-            <Label layoutX="32.0" layoutY="139.0" prefHeight="60.0" prefWidth="289.0" style="-fx-font-family: DINPro-Light;" text="Hallo," textFill="#ff29ff">
+            <Label fx:id="hallo" layoutX="32.0" layoutY="139.0" prefHeight="60.0" prefWidth="289.0" style="-fx-font-family: DINPro-Light;" text="Hallo," textFill="#ff29ff">
                <font>
                   <Font name="Bernard MT Condensed" size="42.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="189.0" prefHeight="60.0" prefWidth="315.0" style="-fx-font-family: DINPro-Bold;" text="Welkom!" textFill="#ff29ff">
+            <Label fx:id="welkom" layoutX="32.0" layoutY="189.0" prefHeight="60.0" prefWidth="315.0" style="-fx-font-family: DINPro-Bold;" text="Welkom!" textFill="#ff29ff">
                <font>
                   <Font name="Bernard MT Condensed" size="42.0" />
                </font>
             </Label>
-            <Button fx:id="signUpButton" layoutX="206.0" layoutY="438.0" mnemonicParsing="false" onAction="#onMaakAccountButtonClick" prefHeight="48.0" prefWidth="160.0" style="-fx-font-family: DINPro-Bold; -fx-background-color: white; -fx-border-color: blue; -fx-border-width: 2px;" text="Sign up" textFill="BLUE">
+            <Button fx:id="signUpButton" layoutX="206.0" layoutY="438.0" mnemonicParsing="false" onAction="#onMaakAccountButtonClick" prefHeight="48.0" prefWidth="160.0" style="-fx-font-family: DINPro-Bold; -fx-background-color: white; -fx-border-color: blue; -fx-border-width: 2px;" text="Registreren" textFill="BLUE">
                <font>
                   <Font name="Times New Roman" size="22.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Insets left="10.0" />
                </padding>
             </CheckBox>
-                <Label layoutX="39.0" layoutY="325.0" style="-fx-font-family: DINPro-Light;" text="Password" textFill="#c6c6c6">
+                <Label fx:id="passwordLabel" layoutX="39.0" layoutY="325.0" style="-fx-font-family: DINPro-Light;" text="Wachtwoord" textFill="#c6c6c6">
                     <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                     </font>
