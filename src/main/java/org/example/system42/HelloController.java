@@ -71,26 +71,26 @@ public class HelloController {
     @FXML
     protected void onLoginButtonClick(ActionEvent event) throws IOException {
         /*Database*/
-//        if (new Login().login(emailField.getText(),passwordField.getText())) {
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
-//            Parent newTemplate = fxmlLoader.load();
-//
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(new Scene(newTemplate, 1000, 720));
-//            stage.show();
-//        } else {
-//            System.out.println("Wrong credentials");
-//        }
+        if (new Login().login(emailField.getText(),passwordField.getText())) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
+            Parent newTemplate = fxmlLoader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(newTemplate, 1000, 720));
+            stage.show();
+        } else {
+            System.out.println("Wrong credentials");
+        }
 
         /*Always go to chatpagina*/
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
-
-        Parent newTemplate = fxmlLoader.load();
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(newTemplate, 1000, 720));
-        stage.show();
-        stage.centerOnScreen();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
+//
+//        Parent newTemplate = fxmlLoader.load();
+//
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        stage.setScene(new Scene(newTemplate, 1000, 720));
+//        stage.show();
+//        stage.centerOnScreen();
     }
 
     @FXML
