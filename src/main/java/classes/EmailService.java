@@ -8,8 +8,8 @@ import java.util.Properties;
 public class EmailService {
 
     public void sendEmail(String to, String subject, String content) {
-        final String username = "vuzzeh@gmail.com";
-        final String password = "xrmq jpga eglq eeym";
+        final String username = ""; // Sender email account
+        final String password = ""; // Sender account password
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
