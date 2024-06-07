@@ -70,8 +70,8 @@ public class HelloController {
 
     @FXML
     protected void onLoginButtonClick(ActionEvent event) throws IOException {
-        /* Need to be on the same network (111.111.111.x) to be able to remotely read/write from database, I ain't setting up no port forwarding right now */
-//       if (new Login().login(emailField.getText(),passwordField.getText())) {
+        /*Database*/
+//        if (new Login().login(emailField.getText(),passwordField.getText())) {
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
 //            Parent newTemplate = fxmlLoader.load();
 //
@@ -81,6 +81,8 @@ public class HelloController {
 //        } else {
 //            System.out.println("Wrong credentials");
 //        }
+
+        /*Always go to chatpagina*/
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("chatpagina.fxml"));
 
         Parent newTemplate = fxmlLoader.load();
@@ -93,7 +95,6 @@ public class HelloController {
 
     @FXML
     protected void onWachtwoordVergetenButtonClick(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("wachtwoordvergeten-view.fxml"));
 
         Parent newTemplate = fxmlLoader.load();
