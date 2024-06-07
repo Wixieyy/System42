@@ -1,9 +1,6 @@
 package classes;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -17,10 +14,8 @@ public class Login {
     }
 
     public boolean login(String email, String password) {
-        String uri = "mongodb://localhost:27017";
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-            MongoCollection<Document> collection = database.getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        if (collection != null) {
             Document document = collection.find(eq("email", email)).first();
             if (document != null) {
                 boolean passwordMatches = password.equals(document.getString("password"));
