@@ -8,8 +8,8 @@ import java.util.Properties;
 public class EmailService {
 
     public void sendEmail(String to, String subject, String content) {
-        final String username = ""; // Sender email account
-        final String password = ""; // Sender account password
+        final String username = "vuzzeh@gmail.com"; // Sender email account
+        final String password = "ajim evbx befm drlw"; // Sender account password
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -19,8 +19,7 @@ public class EmailService {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
+                    protected PasswordAuthentication getPasswordAuthentication() {return new PasswordAuthentication(username, password);
                     }
                 });
 
