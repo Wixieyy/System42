@@ -26,6 +26,8 @@ public class ProfielBewerkenController {
     @FXML
     private TextField gebruikersnaamField;
     @FXML
+    private TextField emailadresField;
+    @FXML
     private TextField beroepField;
     @FXML
     private TextField afdelingField;
@@ -75,6 +77,9 @@ public class ProfielBewerkenController {
             assert document != null;
             if (!gebruikersnaamField.getText().isEmpty()) {
                 collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("gebruikersnaam", gebruikersnaamField.getText())));
+            }
+            if (!emailadresField.getText().isEmpty()) {
+                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("email", gebruikersnaamField.getText())));
             }
             if (!beroepField.getText().isEmpty()) {
                 collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("beroep", beroepField.getText())));
