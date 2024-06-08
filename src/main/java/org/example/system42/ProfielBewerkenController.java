@@ -1,5 +1,7 @@
 package org.example.system42;
 
+import classes.ReaderWriter;
+import com.mongodb.client.MongoCollection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +12,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import java.io.IOException;
+
+import static classes.Login.gebruikerID;
+import static com.mongodb.client.model.Filters.eq;
 
 public class ProfielBewerkenController {
     @FXML
@@ -30,6 +37,20 @@ public class ProfielBewerkenController {
     private TextField herhaalWachtwoordTextField;
     @FXML
     private CheckBox toonWachtwoordCheckBox;
+
+    @FXML
+    public void initialize() {
+        populateFields(gebruikerID);
+    }
+
+    public void populateFields(ObjectId gebruikerID) {
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        Document document = collection.find(eq("_id", gebruikerID)).first();
+        if (document != null) {
+            gebruikersnaamField.setText(document.getString("gebruikersnaam"));
+        }
+    }
+
     @FXML
     protected void onOpslaanButton(ActionEvent event) throws IOException {
 
