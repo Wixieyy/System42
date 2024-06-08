@@ -46,7 +46,6 @@ public class ProfielController {
         beroepField.setStyle("-fx-font-size: 16px;");
         afdelingField.setStyle("-fx-font-size: 16px;");
         veranderProfielButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
-
     }
 
     public void populateFields(ObjectId gebruikerID) {
@@ -56,8 +55,8 @@ public class ProfielController {
             accountIDField.setText(String.valueOf(document.get("_id")));
             gebruikersnaamField.setText(document.getString("gebruikersnaam"));
             emailField.setText(document.getString("email"));
-            beroepField.setText("Onbekend");
-            afdelingField.setText("Onbekend");
+            beroepField.setText(document.getString("beroep"));
+            afdelingField.setText(document.getString("afdeling"));
         }
     }
 
@@ -74,7 +73,7 @@ public class ProfielController {
     }
 
     @FXML
-    protected void onProfielbewerkenButton(ActionEvent event) throws IOException {
+    protected void onProfielBewerkenButton(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profielbewerken-view.fxml"));
 
         Parent newTemplate = fxmlLoader.load();

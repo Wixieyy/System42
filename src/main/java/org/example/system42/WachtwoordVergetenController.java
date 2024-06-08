@@ -42,22 +42,26 @@ public class WachtwoordVergetenController {
     protected void onOpslaanButtonClick (ActionEvent event) throws IOException {
         MongoCollection<Document> collection = establishDatabaseConnection();
         Document document = collection.find(eq("email", emailField.getText())).first();
+        if(document != null) {
+            String to = emailField.getText();
+            String subject = "Wachtwoord vergeten";
+            String content = "Beste " + document.getString("gebruikersnaam") + ",\n\n" +
+                    "Uw wachtwoord is: " + document.getString("password") + "\n\n" +
+                    "Met vriendelijke groet,\n" +
+                    "System42 support team";
 
-        String to = emailField.getText();
-        String subject = "Wachtwoord vergeten";
-        String content = "Beste " + document.getString("gebruikersnaam") + ",\n\n" +
-                "Uw wachtwoord is: " + document.getString("password") + "\n\n" +
-                "Met vriendelijke groet,\n" +
-                "Het support team";
+            EmailService emailService = new EmailService();
+            emailService.sendEmail(to, subject, content);
 
-        EmailService emailService = new EmailService();
-        emailService.sendEmail(to, subject, content);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Parent newTemplate = fxmlLoader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(newTemplate, 800, 600));
-        stage.show();
-        stage.centerOnScreen();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            Parent newTemplate = fxmlLoader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(newTemplate, 800, 600));
+            stage.show();
+            stage.centerOnScreen();
+        }
+        else {
+            System.out.println("Invalid email");
+        }
     }
 }

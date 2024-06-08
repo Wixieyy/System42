@@ -110,7 +110,7 @@
       </Label>
       <Line endX="237.0" layoutX="331.0" layoutY="473.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="414.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Button fx:id="veranderProfielButton" layoutX="297.0" layoutY="503.0" mnemonicParsing="false" onAction="#onProfielbewerkenButton" prefHeight="48.0" prefWidth="203.0" style="-fx-background-color: #ff29ff; -fx-font-family: DINPro-Bold;" text="Verander Profiel" textFill="WHITE">
+      <Button fx:id="veranderProfielButton" layoutX="297.0" layoutY="503.0" mnemonicParsing="false" onAction="#onProfielBewerkenButton" prefHeight="48.0" prefWidth="203.0" style="-fx-background-color: #ff29ff; -fx-font-family: DINPro-Bold;" text="Verander Profiel" textFill="WHITE">
          <font>
             <Font name="Times New Roman" size="22.0" />
          </font>

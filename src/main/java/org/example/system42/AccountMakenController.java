@@ -63,7 +63,9 @@ public class AccountMakenController {
                 if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
                     collection.insertOne(new Document("gebruikersnaam", gebruikersnaamField.getText())
                             .append("email", emailField.getText())
-                            .append("password", wachtwoordField.getText()));
+                            .append("password", wachtwoordField.getText())
+                            .append("beroep", "Onbekend")
+                            .append("afdeling", "Onbekend"));
                     System.out.println("account created");
                 }
                 else {
