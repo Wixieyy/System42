@@ -29,7 +29,15 @@ public class ReaderWriter {
         return collection;
     }
 
-
+    public static boolean isDatabaseConnected() {
+        try {
+            MongoCollection<Document> collection = establishDatabaseConnection();
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
+    }
 
     public static void OfflineJsonLoader() {
         JSONParser parser = new JSONParser();

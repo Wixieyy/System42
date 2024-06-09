@@ -63,6 +63,7 @@ public class ProfielBewerkenController {
         Document document = collection.find(eq("_id", gebruikerID)).first();
         assert document != null;
         gebruikersnaamField.setText(document.getString("gebruikersnaam"));
+        emailadresField.setText(document.getString("email"));
         beroepField.setText(document.getString("beroep"));
         afdelingField.setText(document.getString("afdeling"));
         wachtwoordField.setText(document.getString("password"));
@@ -79,7 +80,7 @@ public class ProfielBewerkenController {
                 collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("gebruikersnaam", gebruikersnaamField.getText())));
             }
             if (!emailadresField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("email", gebruikersnaamField.getText())));
+                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("email", emailadresField.getText())));
             }
             if (!beroepField.getText().isEmpty()) {
                 collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("beroep", beroepField.getText())));
