@@ -1,6 +1,7 @@
 package org.example.system42;
 
 import classes.Login;
+import classes.ReaderWriter;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -11,7 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Node;
@@ -40,6 +43,10 @@ public class HelloController {
     private Rectangle color2;
     @FXML
     private TextField passwordTextField;
+    @FXML
+    private Circle connectionCircle;
+    @FXML
+    private Text connectionText;
 
     @FXML
     private void initialize() {
@@ -49,6 +56,11 @@ public class HelloController {
         wachtwoordVergetenLink.setStyle("-fx-font-size: 14px; -fx-text-fill: #c6c6c6");
         loginButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
         signUpButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ffffff; -fx-border-color: rgb(0,0,255); -fx-border-width: 2px");
+
+        if (!ReaderWriter.isDatabaseConnected()) {
+            connectionCircle.setStyle("-fx-fill: #19e845");
+            connectionText.setText("Online");
+        }
     }
 
     @FXML
