@@ -13,21 +13,21 @@
 
 <AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="421.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.ProfielController">
    <children>
-      <Text layoutX="291.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel" wrappingWidth="217.583984375">
+      <Text fx:id="profielText" layoutX="291.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel" wrappingWidth="217.583984375">
          <font>
             <Font name="DINPro-Bold" size="68.0" />
          </font>
       </Text>
-      <MenuButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Taal">
+      <MenuButton fx:id="taalSlider" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Taal">
         <items>
-          <MenuItem mnemonicParsing="false" onAction="#taalEnglish" text="English" />
-          <MenuItem mnemonicParsing="false" onAction="#taalNederlands" text="Nederlands" />
+          <MenuItem fx:id="itemEN" mnemonicParsing="false" onAction="#taalEnglish" text="English" />
+          <MenuItem fx:id="itemNL" mnemonicParsing="false" onAction="#taalNederlands" text="Nederlands" />
         </items>
          <font>
             <Font name="DINPro-Bold" size="15.0" />
          </font>
       </MenuButton>
-      <Button layoutX="583.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Ga terug">
+      <Button fx:id="backButton" layoutX="583.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Ga terug">
          <font>
             <Font name="DINPro-Bold" size="15.0" />
          </font></Button>
@@ -39,7 +39,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="237.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
+      <Label fx:id="gebruikersnaam" layoutX="241.0" layoutY="237.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -55,7 +55,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="178.0" style="-fx-font-family: DINPro-Light;" text="Account ID" textFill="#c6c6c6">
+      <Label fx:id="accountID" layoutX="241.0" layoutY="178.0" style="-fx-font-family: DINPro-Light;" text="Account ID" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -72,7 +72,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="355.0" style="-fx-font-family: DINPro-Light;" text="Beroep" textFill="#c6c6c6">
+      <Label fx:id="beroep" layoutX="241.0" layoutY="355.0" style="-fx-font-family: DINPro-Light;" text="Beroep" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -87,7 +87,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="296.0" style="-fx-font-family: DINPro-Light;" text="Email address" textFill="#c6c6c6">
+      <Label fx:id="emailAdres" layoutX="241.0" layoutY="296.0" style="-fx-font-family: DINPro-Light;" text="Email address" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -103,7 +103,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="414.0" style="-fx-font-family: DINPro-Light;" text="Afdeling" textFill="#c6c6c6">
+      <Label fx:id="afdeling" layoutX="241.0" layoutY="414.0" style="-fx-font-family: DINPro-Light;" text="Afdeling" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>

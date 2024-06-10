@@ -1,6 +1,7 @@
 package org.example.system42;
 
 import classes.Gebruiker;
+import classes.LocalizationHelper;
 import classes.Login;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -12,14 +13,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.bson.Document;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -40,9 +40,26 @@ public class AccountMakenController {
     private CheckBox toonWachtwoordCheckBox;
     @FXML
     private Button maakAccountButton;
+    @FXML
+    private Label kopText;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label emailLabel;
+    @FXML
+    private Label passwordLabel;
+    @FXML
+    private Label repeatPassword;
+
+    @FXML
+    private ResourceBundle bundle;
+
 
     @FXML
     private void initialize() {
+
+        setLanguage(LocalizationHelper.getCurrentLocale());
+
         gebruikersnaamField.setStyle("-fx-font-size: 16px;");
         emailField.setStyle("-fx-font-size: 16px;");
         wachtwoordField.setStyle("-fx-font-size: 16px;");
@@ -51,6 +68,20 @@ public class AccountMakenController {
         herhaalWachtwoordTextField.setStyle("-fx-font-size: 18px;");
         toonWachtwoordCheckBox.setStyle("-fx-font-size: 14px;");
         maakAccountButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
+    }
+    @FXML
+    public void setLanguage(Locale locale) {
+
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+
+        passwordLabel.setText(bundle.getString("label.password"));
+        toonWachtwoordCheckBox.setText(bundle.getString("checkbox.show_password"));
+        repeatPassword.setText(bundle.getString("label.repeatpassword"));
+        kopText.setText(bundle.getString("label.createaccount"));
+        usernameLabel.setText(bundle.getString("label.gebruikersnaam"));
+        toonWachtwoordCheckBox.setText(bundle.getString("checkbox.show_password"));
+        maakAccountButton.setText(bundle.getString("button.maakaccount"));
+
     }
 
     public void createAccount(ActionEvent event) throws IOException {

@@ -13,25 +13,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import static com.mongodb.client.model.Filters.eq;
+
 public class ReaderWriter {
     private static JSONObject responses;
     private static MongoClient mongoClient = null;
 
-    /* Need to be on the same network (111.111.111.x) to be able to remotely read/write from database, I ain't setting up no port forwarding right now */
-    public static MongoCollection<Document> establishDatabaseConnection() {
+    public static MongoDatabase establishDatabaseConnection() {
         String uri = "mongodb://localhost:27017";
         MongoCollection<Document> collection = null;
         if (mongoClient == null) {
             mongoClient = MongoClients.create(uri);
         }
-        MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-        collection = database.getCollection("email");
-        return collection;
+        return mongoClient.getDatabase("login-gegevens");
     }
 
     public static boolean isDatabaseConnected() {
         try {
-            MongoCollection<Document> collection = establishDatabaseConnection();
+            MongoCollection<Document> collection = establishDatabaseConnection().getCollection("email");
             return true;
         }
         catch (Exception e) {
@@ -54,6 +53,13 @@ public class ReaderWriter {
             if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
                 return (String) responses.get(keyword);
             }
+            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
+                MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
+                Document document = collection.find(eq("term", userInput)).first();
+                if (!document.isEmpty()) {
+                    return document.getString("definition");
+                }
+            }
         }
         return "Sorry, I don't have that in my database!";
     }
@@ -63,11 +69,12 @@ public class ReaderWriter {
         return null;
     }
 
-    public void ExternReader() {
-
+    public static MongoCollection<Document> externReader() {
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("externe-gegevens");
+        return collection;
     }
 
-    public Scanner ExternWriter() {
+    public Scanner externWriter() {
 
         return null;
     }

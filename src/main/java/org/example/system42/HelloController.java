@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.LocalizationHelper;
 import classes.Login;
 import classes.ReaderWriter;
 import com.mongodb.client.MongoClient;
@@ -21,8 +22,9 @@ import javafx.scene.Node;
 import org.bson.Document;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-import static com.mongodb.client.model.Filters.eq;
 
 public class HelloController {
     @FXML
@@ -49,7 +51,43 @@ public class HelloController {
     private Text connectionText;
 
     @FXML
+    private Label loginTitleLabel;
+
+    @FXML
+    private Label helloLabel;
+
+    @FXML
+    private Label welcomeLabel;
+
+    @FXML
+    private Label emailLabel;
+
+    @FXML
+    private Label passwordLabel;
+
+    @FXML
+    private Button forgotPasswordButton;
+
+    private ResourceBundle bundle;
+    @FXML
+    private ComboBox<String> languageSelector;
+
+    private Locale currentLocale = Locale.getDefault();
+
+    @FXML
+    private Label titleLabel;
+
+    @FXML
+    private Label hallo;
+
+    @FXML
+    private Label welkom;
+
+
+    @FXML
     private void initialize() {
+        setLanguage(LocalizationHelper.getCurrentLocale());
+
         emailField.setStyle("-fx-font-size: 16px;");
         passwordField.setStyle("-fx-font-size: 16px;");
         toonWachtwoordCheckBox.setStyle("-fx-font-size: 14px;");
@@ -57,10 +95,23 @@ public class HelloController {
         loginButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
         signUpButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ffffff; -fx-border-color: rgb(0,0,255); -fx-border-width: 2px");
 
-        if (!ReaderWriter.isDatabaseConnected()) {
+        if (ReaderWriter.isDatabaseConnected()) {
             connectionCircle.setStyle("-fx-fill: #19e845");
             connectionText.setText("Online");
         }
+
+    }
+    @FXML
+    public void setLanguage(Locale locale) {
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+
+        hallo.setText(bundle.getString("label.hallo"));
+        welkom.setText(bundle.getString("label.welkom"));
+        passwordLabel.setText(bundle.getString("label.password"));
+        toonWachtwoordCheckBox.setText(bundle.getString("checkbox.show_password"));
+        signUpButton.setText(bundle.getString("label.signup"));
+        wachtwoordVergetenLink.setText(bundle.getString("hyperlink.wachtwoordVergeten"));
+
     }
 
     @FXML

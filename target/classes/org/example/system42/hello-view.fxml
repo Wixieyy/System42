@@ -41,7 +41,7 @@
                     <font>
                         <Font name="Times New Roman" size="22.0" />
                     </font></Button>
-                <Label layoutX="39.0" layoutY="267.0" style="-fx-font-family: DINPro-Light;" text="Email" textFill="#c6c6c6">
+                <Label fx:id="emailLabel" layoutX="39.0" layoutY="267.0" style="-fx-font-family: DINPro-Light;" text="Email" textFill="#c6c6c6">
                     <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                     </font>
@@ -79,12 +79,12 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Hyperlink>
-            <Label layoutX="32.0" layoutY="139.0" prefHeight="60.0" prefWidth="289.0" style="-fx-font-family: DINPro-Light;" text="Hallo," textFill="#ff29ff">
+            <Label fx:id="hallo" layoutX="32.0" layoutY="139.0" prefHeight="60.0" prefWidth="289.0" style="-fx-font-family: DINPro-Light;" text="Hallo," textFill="#ff29ff">
                <font>
                   <Font name="Bernard MT Condensed" size="42.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="189.0" prefHeight="60.0" prefWidth="315.0" style="-fx-font-family: DINPro-Bold;" text="Welkom!" textFill="#ff29ff">
+            <Label fx:id="welkom" layoutX="32.0" layoutY="189.0" prefHeight="60.0" prefWidth="315.0" style="-fx-font-family: DINPro-Bold;" text="Welkom!" textFill="#ff29ff">
                <font>
                   <Font name="Bernard MT Condensed" size="42.0" />
                </font>
@@ -109,13 +109,13 @@
                   <Insets left="10.0" />
                </padding>
             </CheckBox>
-                <Label layoutX="39.0" layoutY="325.0" style="-fx-font-family: DINPro-Light;" text="Password" textFill="#c6c6c6">
+                <Label fx:id="passwordLabel" layoutX="39.0" layoutY="325.0" style="-fx-font-family: DINPro-Light;" text="Password" textFill="#c6c6c6">
                     <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                     </font>
                 </Label>
-            <Circle fx:id="connectionCircle" fill="RED" layoutX="19.0" layoutY="585.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fx:id="connectionText" fill="#808080" layoutX="29.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offline" />
+            <Circle fx:id="connectionCircle" fill="RED" layoutX="333.0" layoutY="585.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fx:id="connectionText" fill="#808080" layoutX="343.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offline" />
             </children>
         </AnchorPane>
     </children>
