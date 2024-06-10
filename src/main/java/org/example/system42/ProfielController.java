@@ -113,7 +113,7 @@ public class ProfielController {
     @FXML
     protected void onProfielbewerkenButton(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profielbewerken-view.fxml"));
-        fxmlLoader.setResources(ResourceBundle.getBundle("languages.lan", LocalizationHelper.getCurrentLocale()));
+        fxmlLoader.setResources(LocalizationHelper.getResourceBundle());
 
         Parent newTemplate = fxmlLoader.load();
 
@@ -126,7 +126,7 @@ public class ProfielController {
     @FXML
     protected void onLogoutButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        fxmlLoader.setResources(ResourceBundle.getBundle("languages.lan", LocalizationHelper.getCurrentLocale()));
+
 
         Parent newTemplate = fxmlLoader.load();
 

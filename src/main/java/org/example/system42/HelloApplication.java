@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         // Load the FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/org/example/system42/hello-view.fxml"));
 
-        // Set the resources bundle for localization
+
         fxmlLoader.setResources(LocalizationHelper.getResourceBundle());
 
         Parent root = fxmlLoader.load();

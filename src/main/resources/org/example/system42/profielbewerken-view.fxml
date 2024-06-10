@@ -9,7 +9,7 @@
 
 <AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.ProfielBewerkenController">
    <children>
-      <Text layoutX="159.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel bewerken">
+      <Text fx:id="titelText" layoutX="159.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel bewerken">
          <font>
             <Font name="Times New Roman" size="68.0" />
          </font>
@@ -22,7 +22,7 @@
          <font>
             <Font name="Calibri" size="17.0" />
          </font></TextField>
-      <Text layoutX="275.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gebruikersnaam:">
+      <Text fx:id="usernameLabel" layoutX="275.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gebruikersnaam:">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
@@ -32,22 +32,22 @@
             <Font name="Calibri" size="17.0" />
          </font></TextField>
       <CheckBox fx:id="toonWachtwoordCheckbox" layoutX="334.0" layoutY="469.0" mnemonicParsing="false" text="Toon wachtwoord" />
-      <Text layoutX="275.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord:">
+      <Text fx:id="passwordLabel" layoutX="275.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wachtwoord:">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </Text>
-      <Text layoutX="275.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Herhaal wachtwoord:">
+      <Text fx:id="repeatPasswordLabel" layoutX="275.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Herhaal wachtwoord:">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
       </Text>
-      <Button layoutX="272.0" layoutY="501.0" mnemonicParsing="false" onAction="#onOpslaanButton" style="-fx-background-radius: 20;" text="Bewerkingen opslaan">
+      <Button fx:id="saveButton" layoutX="272.0" layoutY="501.0" mnemonicParsing="false" onAction="#onOpslaanButton" style="-fx-background-radius: 20;" text="Bewerkingen opslaan">
          <font>
             <Font name="Times New Roman Bold" size="23.0" />
          </font>
       </Button>
-      <Button layoutX="686.0" layoutY="21.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="30.0" prefWidth="100.0" text="Uitloggen">
+      <Button fx:id="uitlogButton" layoutX="686.0" layoutY="21.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="30.0" prefWidth="100.0" text="Uitloggen">
          <font>
             <Font name="Times New Roman" size="15.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="Calibri" size="17.0" />
          </font>
       </TextField>
-      <Text layoutX="275.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email adres:">
+      <Text fx:id="emailLabel" layoutX="275.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email adres:">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>
@@ -67,7 +67,7 @@
             <Font name="Calibri" size="17.0" />
          </font>
       </TextField>
-      <Text layoutX="275.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beroep:">
+      <Text fx:id="jobLabel" layoutX="275.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beroep:">
          <font>
             <Font name="Times New Roman" size="17.0" />
          </font>

@@ -82,6 +82,7 @@ public class HelloController {
     private void initialize() {
 
         setLanguage(LocalizationHelper.getCurrentLocale());
+
         emailField.setStyle("-fx-font-size: 16px;");
         passwordField.setStyle("-fx-font-size: 16px;");
         toonWachtwoordCheckBox.setStyle("-fx-font-size: 14px;");
@@ -93,7 +94,7 @@ public class HelloController {
 
     @FXML
     public void setLanguage(Locale locale) {
-        bundle = ResourceBundle.getBundle("languages/lan");
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
 
         hallo.setText(bundle.getString("label.hallo"));
         welkom.setText(bundle.getString("label.welkom"));

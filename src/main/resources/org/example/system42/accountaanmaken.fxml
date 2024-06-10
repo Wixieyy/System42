@@ -29,7 +29,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label graphicTextGap="10.0" layoutX="159.0" layoutY="41.0" text="Maak uw account aan">
+      <Label fx:id="kopText" graphicTextGap="10.0" layoutX="159.0" layoutY="41.0" text="Maak uw account aan">
          <font>
             <Font name="DINPro-Bold" size="50.0" />
          </font>
@@ -74,7 +74,7 @@
             <Insets />
          </opaqueInsets>
       </PasswordField>
-      <Label layoutX="241.0" layoutY="230.0" style="-fx-font-family: DINPro-Light;" text="Email address" textFill="#c6c6c6">
+      <Label fx:id="emailLabel" layoutX="241.0" layoutY="230.0" style="-fx-font-family: DINPro-Light;" text="Email" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -90,7 +90,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="171.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
+      <Label fx:id="usernameLabel" layoutX="241.0" layoutY="171.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -99,19 +99,19 @@
       <Line endX="236.0" layoutX="331.0" layoutY="171.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="331.0" layoutY="171.0" startX="237.0" startY="58.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="171.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Label layoutX="241.0" layoutY="348.0" style="-fx-font-family: DINPro-Light;" text="Herhaal wachtwoord" textFill="#c6c6c6">
+      <Label fx:id="repeatPassword" layoutX="241.0" layoutY="348.0" style="-fx-font-family: DINPro-Light;" text="Herhaal wachtwoord" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Label>
       <Line endX="237.0" layoutX="331.0" layoutY="407.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="348.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Label layoutX="241.0" layoutY="289.0" style="-fx-font-family: DINPro-Light;" text="Wachtwoord" textFill="#c6c6c6">
+      <Label fx:id="passwordLabel" layoutX="241.0" layoutY="289.0" style="-fx-font-family: DINPro-Light;" text="Wachtwoord" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Label>
-      <Line endX="236.0" layoutX="331.0" layoutY="348.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line fx:id="repeatPasswordLabel" endX="236.0" layoutX="331.0" layoutY="348.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="331.0" layoutY="289.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="289.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Button fx:id="maakAccountButton" layoutX="297.0" layoutY="459.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="48.0" prefWidth="203.0" style="-fx-background-color: #ff29ff; -fx-font-family: DINPro-Bold;" text="Maak account" textFill="WHITE">

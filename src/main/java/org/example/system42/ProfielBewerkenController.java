@@ -20,11 +20,24 @@ public class ProfielBewerkenController {
     @FXML
     private void initialize() {
         setLanguage(LocalizationHelper.getCurrentLocale());
-
     }
 
     @FXML
-    public void setLanguage(Locale locale) {}
+    public void setLanguage(Locale locale) {
+
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+
+        titelText.setText(bundle.getString("text.hoofdtext"));
+        usernameLabel.setText(bundle.getString("text.gebruikersnaam"));
+        emailLabel.setText(bundle.getString("text.emailLabel"));
+        jobLabel.setText(bundle.getString("text.profession"));
+        passwordLabel.setText(bundle.getString("text.password"));
+        repeatPasswordLabel.setText(bundle.getString("text.repeatpassword"));
+        saveButton.setText(bundle.getString("button.saveChanges"));
+        uitlogButton.setText(bundle.getString("button.logout"));
+        toonWachtwoordCheckbox.setText(bundle.getString("checkbox.show_password"));
+
+    }
 
 
 
