@@ -180,10 +180,10 @@ public class ChatPaginaController {
     }
 
     private void loadResponses() {
-        ReaderWriter.OfflineJsonLoader();
+        ReaderWriter.offlineJsonLoader();
     }
 
     private static String getResponse(String userInput) {
-        return ReaderWriter.OfflineJsonReader(userInput);
+        return ReaderWriter.offlineJsonReader(userInput);
     }
 }
