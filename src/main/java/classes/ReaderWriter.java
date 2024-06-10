@@ -25,12 +25,12 @@ public class ReaderWriter {
         if (mongoClient == null) {
             mongoClient = MongoClients.create(uri);
         }
-        return mongoClient.getDatabase("login-gegevens");
+        return mongoClient.getDatabase("System42DB");
     }
 
     public static boolean isDatabaseConnected() {
         try {
-            MongoCollection<Document> collection = establishDatabaseConnection().getCollection("email");
+            MongoCollection<Document> collection = establishDatabaseConnection().getCollection("login-credentials");
             return true;
         }
         catch (Exception e) {
@@ -56,7 +56,6 @@ public class ReaderWriter {
             }
         }
 
-        // Check the MongoDB collection for the user input
         MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
         Document doc = collection.find(eq("term", userInput.toLowerCase())).first();
         if (doc != null) {

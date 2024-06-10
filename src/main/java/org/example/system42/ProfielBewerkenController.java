@@ -86,7 +86,7 @@ public class ProfielBewerkenController {
     }
 
     public void populateFields(ObjectId gebruikerID) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
         Document document = collection.find(eq("_id", gebruikerID)).first();
         assert document != null;
         gebruikersnaamField.setText(document.getString("gebruikersnaam"));
@@ -118,7 +118,7 @@ public class ProfielBewerkenController {
 
     @FXML
     protected void onOpslaanButton(ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
 
         if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
             Document document = collection.find(eq("_id", gebruikerID)).first();
@@ -192,7 +192,7 @@ public class ProfielBewerkenController {
 
     @FXML
     protected void onVerwijderAccountButtonClick(ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
         collection.deleteOne(eq("_id", gebruikerID));
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));

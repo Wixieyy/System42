@@ -93,7 +93,7 @@ public class ProfielController {
     }
 
     public void populateFields(ObjectId gebruikerID) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
         Document document = collection.find(eq("_id", gebruikerID)).first();
         if (document != null) {
             accountIDField.setText(String.valueOf(document.get("_id")));

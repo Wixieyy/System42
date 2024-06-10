@@ -87,8 +87,8 @@ public class AccountMakenController {
     public void createAccount(ActionEvent event) throws IOException {
         String uri = "mongodb://localhost:27017";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-            MongoCollection<Document> collection = database.getCollection("email");
+            MongoDatabase database = mongoClient.getDatabase("System42DB");
+            MongoCollection<Document> collection = database.getCollection("login-credentials");
             Document document = collection.find(eq("email", emailField.getText())).first();
             if (document == null) {
                 if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
