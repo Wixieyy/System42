@@ -78,6 +78,14 @@ public class ChatPaginaController {
 
     @FXML
     protected void onSessieButtonClicked() {
+
+        String sessie;
+
+        if(LocalizationHelper.getCurrentLocale().getLanguage().equals("nl")){
+            sessie = "Sessie";
+        }else{
+            sessie = "Session";
+        }
         sessieBox.setSpacing(5);
         int newSessionId = ++sessionCounter;
         Sessie newSession = new Sessie(newSessionId, "Sessie " + newSessionId);
