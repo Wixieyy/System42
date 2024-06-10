@@ -13,7 +13,7 @@
 
 <AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.ProfielBewerkenController">
    <children>
-      <Text layoutX="124.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel bewerken" wrappingWidth="537.583984375">
+      <Text fx:id="titelText" layoutX="124.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel bewerken" wrappingWidth="537.583984375">
          <font>
             <Font name="DINPro-Bold" size="68.0" />
          </font>
@@ -34,7 +34,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="252.0" style="-fx-font-family: DINPro-Light;" text="Beroep" textFill="#c6c6c6">
+      <Label fx:id="jobLabel" layoutX="241.0" layoutY="252.0" style="-fx-font-family: DINPro-Light;" text="Beroep" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -42,7 +42,7 @@
       <Line endX="236.0" layoutX="331.0" layoutY="311.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="332.0" layoutY="252.0" startX="236.0" startY="118.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="252.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Label layoutX="241.0" layoutY="132.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
+      <Label fx:id="usernameLabel" layoutX="241.0" layoutY="132.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -59,7 +59,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="311.0" style="-fx-font-family: DINPro-Light;" text="Afdeling" textFill="#c6c6c6">
+      <Label fx:id="afdeling" layoutX="241.0" layoutY="311.0" style="-fx-font-family: DINPro-Light;" text="Afdeling" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -111,14 +111,14 @@
          </opaqueInsets>
       </PasswordField>
       <Line endX="236.0" layoutX="332.0" layoutY="311.0" startX="237.0" startY="177.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Label layoutX="241.0" layoutY="429.0" style="-fx-font-family: DINPro-Light;" text="Herhaal wachtwoord" textFill="#c6c6c6">
+      <Label fx:id="repeatPasswordLabel" layoutX="241.0" layoutY="429.0" style="-fx-font-family: DINPro-Light;" text="Herhaal wachtwoord" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Label>
       <Line endX="237.0" layoutX="331.0" layoutY="488.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-6.0" layoutY="429.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Label layoutX="241.0" layoutY="370.0" style="-fx-font-family: DINPro-Light;" text="Wachtwoord" textFill="#c6c6c6">
+      <Label fx:id="passwordLabel" layoutX="241.0" layoutY="370.0" style="-fx-font-family: DINPro-Light;" text="Wachtwoord" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -133,7 +133,7 @@
             <Insets left="10.0" />
          </padding>
       </CheckBox>
-      <Button layoutX="697.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Ga terug">
+      <Button fx:id="back" layoutX="697.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Ga terug">
          <font>
             <Font name="DINPro-Bold" size="15.0" />
          </font>
@@ -151,7 +151,7 @@
             <Insets left="10.0" />
          </padding>
       </TextField>
-      <Label layoutX="241.0" layoutY="192.0" style="-fx-font-family: DINPro-Light;" text="Emailadres" textFill="#c6c6c6">
+      <Label fx:id="emailLabel" layoutX="241.0" layoutY="192.0" style="-fx-font-family: DINPro-Light;" text="Emailadres" textFill="#c6c6c6">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>

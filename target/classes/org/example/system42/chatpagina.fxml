@@ -31,11 +31,11 @@
                   <Font name="DINPro-Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="566.0" layoutY="8.0" mnemonicParsing="false" onAction="#onProfielButtonClick" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-border-radius: 10;" text="Profiel">
+            <Button fx:id="profielButton" layoutX="566.0" layoutY="8.0" mnemonicParsing="false" onAction="#onProfielButtonClick" prefHeight="30.0" prefWidth="70.0" style="-fx-background-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-border-radius: 10;" text="Profiel">
                <font>
                   <Font name="DINPro-Bold" size="15.0" />
                </font></Button>
-            <Text fill="WHITE" layoutX="277.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: DNIPro-Bold;" text="Chat" textAlignment="CENTER" wrappingWidth="192.13671875">
+            <Text fx:id="chatText" fill="WHITE" layoutX="277.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: DNIPro-Bold;" text="Chat" textAlignment="CENTER" wrappingWidth="192.13671875">
                <font>
                   <Font name="DINPro-Bold" size="25.0" />
                </font>
@@ -77,7 +77,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Text fill="WHITE" layoutX="38.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: DNIPro-Bold;" text="Sessies" textAlignment="CENTER" wrappingWidth="192.13671875">
+      <Text fx:id="sessiesText" fill="WHITE" layoutX="38.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: DNIPro-Bold;" text="Sessies" textAlignment="CENTER" wrappingWidth="192.13671875">
          <font>
             <Font name="DINPro-Bold" size="25.0" />
          </font>

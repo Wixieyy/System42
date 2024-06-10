@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.LocalizationHelper;
 import classes.Gebruiker;
 import classes.Login;
 import classes.ReaderWriter;
@@ -13,13 +14,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -36,9 +39,35 @@ public class ProfielController {
     private TextField afdelingField;
     @FXML
     private Button veranderProfielButton;
+    @FXML
+    private Text profielText;
+
+    @FXML
+    private Button backButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private MenuButton taalSlider;
+    @FXML
+    private MenuItem itemEN;
+    @FXML
+    private MenuItem itemNL;
+    @FXML
+    private Label accountID;
+    @FXML
+    private Label gebruikersnaam;
+    @FXML
+    private Label emailAdres;
+    @FXML
+    private Label beroep;
+    @FXML
+    private Label afdeling;
+
+    private ResourceBundle bundle;
 
     @FXML
     public void initialize() {
+        setLanguage(LocalizationHelper.getCurrentLocale());
         populateFields(Login.gebruikerID);
         accountIDField.setStyle("-fx-font-size: 16px;");
         gebruikersnaamField.setStyle("-fx-font-size: 16px;");
@@ -48,8 +77,23 @@ public class ProfielController {
         veranderProfielButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
     }
 
+    private void setLanguage(Locale locale) {
+
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+        profielText.setText(bundle.getString("label.profile"));
+        gebruikersnaam.setText(bundle.getString("label.gebruikersnaam"));
+        beroep.setText(bundle.getString("label.profession"));
+        afdeling.setText(bundle.getString("label.department"));
+        veranderProfielButton.setText(bundle.getString("button.edit_profile"));
+        backButton.setText(bundle.getString("button.back"));
+        logoutButton.setText(bundle.getString("button.logout"));
+        taalSlider.setText(bundle.getString("menubutton.taal"));
+        itemNL.setText(bundle.getString("menuitem.dutch"));
+        itemEN.setText(bundle.getString("menuitem.english"));
+    }
+
     public void populateFields(ObjectId gebruikerID) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
         Document document = collection.find(eq("_id", gebruikerID)).first();
         if (document != null) {
             accountIDField.setText(String.valueOf(document.get("_id")));
@@ -99,14 +143,17 @@ public class ProfielController {
 
     @FXML
     public void taalEnglish(ActionEvent actionEvent) {
-
         System.out.println("Language set to English");
+        changeLanguage(new Locale("en"));
     }
 
     @FXML
     public  void taalNederlands(ActionEvent actionEvent) {
-
         System.out.println("Taal veranderd naar Nederlands");
+        changeLanguage(new Locale("nl"));
     }
-
+    private void changeLanguage(Locale locale) {
+        LocalizationHelper.setLocale(locale);
+        setLanguage(locale);
+    }
 }

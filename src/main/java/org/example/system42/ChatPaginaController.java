@@ -19,6 +19,10 @@ import javafx.scene.Node;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import classes.LocalizationHelper;
+import javafx.scene.text.Text;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class ChatPaginaController {
     @FXML
@@ -28,7 +32,22 @@ public class ChatPaginaController {
     private TextField chatBox;
 
     @FXML
+    private Button wijzigenSessieButton;
+    @FXML
     private TextArea chatArea;
+    @FXML
+    private Text sessiesText;
+    @FXML
+    private Text chatText;
+    @FXML
+    private Button verwijderSessieButton;
+    @FXML
+    private Button profielButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button nieuweSessieButton;
+    private ResourceBundle bundle;
 
     private int sessionCounter = 0;
     private Map<Integer, Sessie> sessions = new HashMap<>();
@@ -36,12 +55,25 @@ public class ChatPaginaController {
 
     @FXML
     public void initialize() {
+        setLanguage(LocalizationHelper.getCurrentLocale());
         loadResponses();
         chatBox.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 onVerstuurButtonClick(null);
             }
         });
+    }
+    @FXML
+    private void setLanguage(Locale locale){
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+        sessiesText.setText(bundle.getString("text.sessie"));
+        nieuweSessieButton.setText(bundle.getString("label.new_session"));
+        logoutButton.setText(bundle.getString("label.logout"));
+        profielButton.setText(bundle.getString("label.profile"));
+        verwijderSessieButton.setText(bundle.getString("label.delete_session"));
+        chatText.setText(bundle.getString("text.chat"));
+        wijzigenSessieButton.setText(bundle.getString("button.changeSession"));
+
     }
 
     @FXML

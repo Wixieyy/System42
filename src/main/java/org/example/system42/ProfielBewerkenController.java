@@ -3,21 +3,23 @@ package org.example.system42;
 import classes.Login;
 import classes.ReaderWriter;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import classes.LocalizationHelper;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static classes.Login.gebruikerID;
 import static com.mongodb.client.model.Filters.eq;
@@ -45,7 +47,32 @@ public class ProfielBewerkenController {
     private Button veranderProfielButton;
 
     @FXML
+    private Text titelText;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label  emailLabel;
+    @FXML
+    private Label  repeatPasswordLabel;
+    @FXML
+    private Label  jobLabel;
+    @FXML
+    private Label  passwordLabel;
+
+    @FXML
+    private Button back;
+    @FXML
+    private Button verwijderAccountButton;
+    @FXML
+    private Label afdeling;
+
+    @FXML
+    private ResourceBundle bundle;
+
+    @FXML
     public void initialize() {
+        setLanguage(LocalizationHelper.getCurrentLocale());
+
         populateFields(Login.gebruikerID);
         gebruikersnaamField.setStyle("-fx-font-size: 16px;");
         beroepField.setStyle("-fx-font-size: 16px;");
@@ -59,7 +86,7 @@ public class ProfielBewerkenController {
     }
 
     public void populateFields(ObjectId gebruikerID) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
         Document document = collection.find(eq("_id", gebruikerID)).first();
         assert document != null;
         gebruikersnaamField.setText(document.getString("gebruikersnaam"));
@@ -67,11 +94,31 @@ public class ProfielBewerkenController {
         beroepField.setText(document.getString("beroep"));
         afdelingField.setText(document.getString("afdeling"));
         wachtwoordField.setText(document.getString("password"));
+
 }
 
     @FXML
+    public void setLanguage(Locale locale) {
+
+        bundle = ResourceBundle.getBundle("languages.lan", locale);
+
+        titelText.setText(bundle.getString("label.hoofdtext"));
+        usernameLabel.setText(bundle.getString("label.gebruikersnaam"));
+        emailLabel.setText(bundle.getString("label.emailLabel"));
+        jobLabel.setText(bundle.getString("label.profession"));
+        passwordLabel.setText(bundle.getString("label.password"));
+        repeatPasswordLabel.setText(bundle.getString("label.repeatpassword"));
+        veranderProfielButton.setText(bundle.getString("button.saveChanges"));
+        back.setText(bundle.getString("button.back"));
+        toonWachtwoordCheckBox.setText(bundle.getString("checkbox.show_password"));
+        verwijderAccountButton.setText(bundle.getString("button.deleteAccount"));
+        afdeling.setText(bundle.getString("label.afdeling"));
+
+    }
+
+    @FXML
     protected void onOpslaanButton(ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
 
         if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
             Document document = collection.find(eq("_id", gebruikerID)).first();
@@ -145,7 +192,7 @@ public class ProfielBewerkenController {
 
     @FXML
     protected void onVerwijderAccountButtonClick(ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection();
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
         collection.deleteOne(eq("_id", gebruikerID));
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
