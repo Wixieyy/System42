@@ -57,35 +57,4 @@ public class Gebruiker {
         }
     }
 
-    public String getGebruikerNaam() {
-        return "testing";
-    }
-
-    public void setGebruikerNaam(String gebruikerNaam) {
-
-    }
-
-    public String getGebruikerEmail() {
-        return gebruikerEmail;
-    }
-
-    public void setGebruikerEmail(String email) {
-
-    }
-
-    public String getGebruikerWachtwoord() {
-        return gebruikerWachtwoord;
-    }
-
-    public void setGebruikerWachtwoord(String gebruikerWachtwoord) {
-
-    }
-
-    public int getGebruikerID() {
-        return gebruikerID;
-    }
-
-    public void setGebruikerID(int gebruikerID) {
-
-    }
 }

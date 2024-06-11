@@ -1,5 +1,6 @@
 package org.example.system42;
 
+import classes.Profiel;
 import classes.LocalizationHelper;
 import classes.Gebruiker;
 import classes.Login;
@@ -38,18 +39,17 @@ public class ProfielController {
     @FXML
     private TextField afdelingField;
     @FXML
-    private Button veranderProfielButton;
+    private  Button veranderProfielButton;
     @FXML
-    private Text profielText;
-
+    private  Text profielText;
     @FXML
-    private Button backButton;
+    private  Button backButton;
     @FXML
-    private Button logoutButton;
+    private  Button logoutButton;
     @FXML
-    private MenuButton taalSlider;
+    private  MenuButton taalSlider;
     @FXML
-    private MenuItem itemEN;
+    private  MenuItem itemEN;
     @FXML
     private MenuItem itemNL;
     @FXML
@@ -77,7 +77,7 @@ public class ProfielController {
         veranderProfielButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff");
     }
 
-    private void setLanguage(Locale locale) {
+    public void setLanguage(Locale locale) {
 
         bundle = ResourceBundle.getBundle("languages.lan", locale);
         profielText.setText(bundle.getString("label.profile"));
@@ -144,16 +144,16 @@ public class ProfielController {
     @FXML
     public void taalEnglish(ActionEvent actionEvent) {
         System.out.println("Language set to English");
-        changeLanguage(new Locale("en"));
+        Profiel.changeLanguage(new Locale("en"));
     }
 
     @FXML
     public  void taalNederlands(ActionEvent actionEvent) {
         System.out.println("Taal veranderd naar Nederlands");
-        changeLanguage(new Locale("nl"));
+        Profiel.changeLanguage(new Locale("nl"));
     }
-    private void changeLanguage(Locale locale) {
-        LocalizationHelper.setLocale(locale);
-        setLanguage(locale);
-    }
+//    private void changeLanguage(Locale locale) {
+//        LocalizationHelper.setLocale(locale);
+//        setLanguage(locale);
+//    }
 }

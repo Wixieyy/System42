@@ -1,6 +1,7 @@
 package org.example.system42;
 
 import classes.Login;
+import classes.Profiel;
 import classes.ReaderWriter;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -51,13 +52,13 @@ public class ProfielBewerkenController {
     @FXML
     private Label usernameLabel;
     @FXML
-    private Label  emailLabel;
+    private Label emailLabel;
     @FXML
-    private Label  repeatPasswordLabel;
+    private Label repeatPasswordLabel;
     @FXML
-    private Label  jobLabel;
+    private Label jobLabel;
     @FXML
-    private Label  passwordLabel;
+    private Label passwordLabel;
 
     @FXML
     private Button back;
@@ -95,7 +96,7 @@ public class ProfielBewerkenController {
         afdelingField.setText(document.getString("afdeling"));
         wachtwoordField.setText(document.getString("password"));
 
-}
+    }
 
     @FXML
     public void setLanguage(Locale locale) {
@@ -120,36 +121,27 @@ public class ProfielBewerkenController {
     protected void onOpslaanButton(ActionEvent event) throws IOException {
         MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
 
-        if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
-            Document document = collection.find(eq("_id", gebruikerID)).first();
-            assert document != null;
-            if (!gebruikersnaamField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("gebruikersnaam", gebruikersnaamField.getText())));
-            }
-            if (!emailadresField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("email", emailadresField.getText())));
-            }
-            if (!beroepField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("beroep", beroepField.getText())));
-            }
-            if (!afdelingField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("afdeling", afdelingField.getText())));
-            }
-            if (!wachtwoordField.getText().isEmpty()) {
-                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("password", wachtwoordField.getText())));
-            }
+        boolean checkPassword = true;
+        Profiel.changeProfile(checkPassword, wachtwoordField.getText(), herhaalWachtwoordField.getText(), gebruikersnaamField.getText(),emailadresField.getText(),beroepField.getText(),afdelingField.getText());
 
+        if (checkPassword) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profiel-view.fxml"));
             Parent newTemplate = fxmlLoader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(newTemplate, 800, 600));
             stage.show();
             stage.centerOnScreen();
-        }
-        else {
-            System.out.println("Passwords are not equal");
+        } else {
+            System.out.println("error");
         }
     }
+//        else
+//        {
+//        System.out.println("Passwords are not equal");
+//        break;
+//    }
+
+
 
     @FXML
     protected void onToonWachtwoordCheckBoxClicked() {
@@ -203,3 +195,23 @@ public class ProfielBewerkenController {
         stage.centerOnScreen();
     }
 }
+
+
+//        if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
+//            Document document = collection.find(eq("_id", gebruikerID)).first();
+//            assert document != null;
+//            if (!gebruikersnaamField.getText().isEmpty()) {
+//                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("gebruikersnaam", gebruikersnaamField.getText())));
+//            }
+//            if (!emailadresField.getText().isEmpty()) {
+//                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("email", emailadresField.getText())));
+//            }
+//            if (!beroepField.getText().isEmpty()) {
+//                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("beroep", beroepField.getText())));
+//            }
+//            if (!afdelingField.getText().isEmpty()) {
+//                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("afdeling", afdelingField.getText())));
+//            }
+//            if (!wachtwoordField.getText().isEmpty()) {
+//                collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("password", wachtwoordField.getText())));
+//            }
