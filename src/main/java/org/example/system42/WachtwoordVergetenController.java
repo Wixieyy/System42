@@ -80,7 +80,7 @@ public class WachtwoordVergetenController {
 
     @FXML
     protected void onOpslaanButtonClick (ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
 
         Document document = collection.find(eq("email", emailField.getText())).first();
         if(document != null) {

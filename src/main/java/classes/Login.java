@@ -14,7 +14,7 @@ public class Login {
     }
 
     public boolean login(String email, String password) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
         if (collection != null) {
             Document document = collection.find(eq("email", email)).first();
             if (document != null) {

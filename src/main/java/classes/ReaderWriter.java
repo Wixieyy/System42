@@ -25,12 +25,12 @@ public class ReaderWriter {
         if (mongoClient == null) {
             mongoClient = MongoClients.create(uri);
         }
-        return mongoClient.getDatabase("login-gegevens");
+        return mongoClient.getDatabase("System42DB");
     }
 
     public static boolean isDatabaseConnected() {
         try {
-            MongoCollection<Document> collection = establishDatabaseConnection().getCollection("email");
+            MongoCollection<Document> collection = establishDatabaseConnection().getCollection("login-credentials");
             return true;
         }
         catch (Exception e) {
@@ -38,7 +38,7 @@ public class ReaderWriter {
         }
     }
 
-    public static void OfflineJsonLoader() {
+    public static void offlineJsonLoader() {
         JSONParser parser = new JSONParser();
         try (InputStreamReader reader = new InputStreamReader(ReaderWriter.class.getResourceAsStream("/org/example/system42/responses.json"))) {
             responses = (JSONObject) parser.parse(reader);
@@ -47,20 +47,21 @@ public class ReaderWriter {
         }
     }
 
-    public static String OfflineJsonReader(String userInput) {
+    public static String offlineJsonReader(String userInput) {
         for (Object key : responses.keySet()) {
             String keyword = (String) key;
-            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
+            boolean contains = userInput.toLowerCase().contains(keyword.toLowerCase());
+            if (contains) {
                 return (String) responses.get(keyword);
             }
-            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
-                MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
-                Document document = collection.find(eq("term", userInput)).first();
-                if (!document.isEmpty()) {
-                    return document.getString("definition");
-                }
-            }
         }
+
+        MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
+        Document doc = collection.find(eq("term", userInput.toLowerCase())).first();
+        if (doc != null) {
+            return doc.getString("definition");
+        }
+
         return "Sorry, I don't have that in my database!";
     }
 
