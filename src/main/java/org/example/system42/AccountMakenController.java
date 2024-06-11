@@ -84,29 +84,9 @@ public class AccountMakenController {
 
     }
 
-    public void createAccount(ActionEvent event) throws IOException {
-        String uri = "mongodb://localhost:27017";
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("login-gegevens");
-            MongoCollection<Document> collection = database.getCollection("email");
-            Document document = collection.find(eq("email", emailField.getText())).first();
-            if (document == null) {
-                if (wachtwoordField.getText().equals(herhaalWachtwoordField.getText())) {
-                    collection.insertOne(new Document("gebruikersnaam", gebruikersnaamField.getText())
-                            .append("email", emailField.getText())
-                            .append("password", wachtwoordField.getText())
-                            .append("beroep", "Onbekend")
-                            .append("afdeling", "Onbekend"));
-                    System.out.println("account created");
-                }
-                else {
-                    System.out.println("Passwords dont match");
-                }
-            }
-            else {
-                System.out.println("Account already exists");
-            }
-        }
+    @FXML
+    public void onMaakAccountButtonClick() {
+        Gebruiker.createAccount(gebruikersnaamField.getText(), emailField.getText(), wachtwoordField.getText(), herhaalWachtwoordField.getText());
     }
 
     @FXML

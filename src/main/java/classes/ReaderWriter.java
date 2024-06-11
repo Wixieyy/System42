@@ -25,7 +25,7 @@ public class ReaderWriter {
         if (mongoClient == null) {
             mongoClient = MongoClients.create(uri);
         }
-        return mongoClient.getDatabase("login-gegevens");
+        return mongoClient.getDatabase("");
     }
 
     public static boolean isDatabaseConnected() {

@@ -2,6 +2,7 @@ package org.example.system42;
 
 import classes.EmailService;
 import classes.ReaderWriter;
+import classes.VergeetWachtwoord;
 import com.mongodb.client.MongoCollection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -80,29 +81,13 @@ public class WachtwoordVergetenController {
 
     @FXML
     protected void onOpslaanButtonClick (ActionEvent event) throws IOException {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        VergeetWachtwoord.wachtwoordVergeten(emailField.getText());
 
-        Document document = collection.find(eq("email", emailField.getText())).first();
-        if(document != null) {
-            String to = emailField.getText();
-            String subject = "Wachtwoord vergeten";
-            String content = "Beste " + document.getString("gebruikersnaam") + ",\n\n" +
-                    "Uw wachtwoord is: " + document.getString("password") + "\n\n" +
-                    "Met vriendelijke groet,\n" +
-                    "System42 support team";
-
-            EmailService emailService = new EmailService();
-            emailService.sendEmail(to, subject, content);
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-            Parent newTemplate = fxmlLoader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(newTemplate, 800, 600));
-            stage.show();
-            stage.centerOnScreen();
-        }
-        else {
-            System.out.println("Invalid email");
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent newTemplate = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(newTemplate, 800, 600));
+        stage.show();
+        stage.centerOnScreen();
     }
 }

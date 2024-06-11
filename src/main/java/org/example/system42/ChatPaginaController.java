@@ -1,7 +1,6 @@
 package org.example.system42;
 
-import classes.ReaderWriter;
-import classes.Sessie;
+import classes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -19,7 +18,7 @@ import javafx.scene.Node;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import classes.LocalizationHelper;
+
 import javafx.scene.text.Text;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -56,7 +55,7 @@ public class ChatPaginaController {
     @FXML
     public void initialize() {
         setLanguage(LocalizationHelper.getCurrentLocale());
-        loadResponses();
+        Assistant.loadResponses();
         chatBox.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 onVerstuurButtonClick(null);
@@ -155,19 +154,20 @@ public class ChatPaginaController {
             chatArea.appendText("No session selected. Please create or select a session.\n");
             return;
         }
-        String message = chatBox.getText();
-        chatArea.appendText("Gebruiker: " + message + "\n");
-        String response = getResponse(message);
-        chatArea.appendText("Assistant: " + response + "\n\n");
-        chatBox.clear();
-
-        Sessie currentSession = sessions.get(currentSessionId);
-        if (currentSession != null) {
-            TextArea textArea = new TextArea("Gebruiker: " + message + "\nA.I. Assistant: " + response + "\n");
-            textArea.setEditable(false);
-            textArea.setWrapText(true);
-            currentSession.getSessionBox().getChildren().add(textArea);
-        }
+       Message.completeMessage(sessions, chatBox, chatArea, currentSessionId);
+//        String message = chatBox.getText();
+//        chatArea.appendText("Gebruiker: " + message + "\n");
+//        String response = Assistant.getResponse(message);
+//        chatArea.appendText("Assistant: " + response + "\n\n");
+//        chatBox.clear();
+//
+//        Sessie currentSession = sessions.get(currentSessionId);
+//        if (currentSession != null) {
+//            TextArea textArea = new TextArea("Gebruiker: " + message + "\nA.I. Assistant: " + response + "\n");
+//            textArea.setEditable(false);
+//            textArea.setWrapText(true);
+//            currentSession.getSessionBox().getChildren().add(textArea);
+//        }
     }
 
     private void switchToSession(int sessionId) {
@@ -179,11 +179,11 @@ public class ChatPaginaController {
         }
     }
 
-    private void loadResponses() {
-        ReaderWriter.OfflineJsonLoader();
-    }
-
-    private static String getResponse(String userInput) {
-        return ReaderWriter.OfflineJsonReader(userInput);
-    }
+//    private void loadResponses() {
+//        ReaderWriter.OfflineJsonLoader();
+//    }
+//
+//    private static String getResponse(String userInput) {
+//        return ReaderWriter.OfflineJsonReader(userInput);
+//    }
 }
