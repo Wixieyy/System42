@@ -7,7 +7,7 @@ public class Assistant {
     }
 
     public static String getResponse(String userInput) {
-        return ReaderWriter.OfflineJsonReader(userInput);
+        return ReaderWriter.offlineJsonReader(userInput);
     }
 }
 

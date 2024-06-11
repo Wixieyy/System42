@@ -25,7 +25,7 @@ public class ReaderWriter {
         if (mongoClient == null) {
             mongoClient = MongoClients.create(uri);
         }
-        return mongoClient.getDatabase("");
+        return mongoClient.getDatabase("System42DB");
     }
 
     public static boolean isDatabaseConnected() {
@@ -47,20 +47,21 @@ public class ReaderWriter {
         }
     }
 
-    public static String OfflineJsonReader(String userInput) {
+    public static String offlineJsonReader(String userInput) {
         for (Object key : responses.keySet()) {
             String keyword = (String) key;
-            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
+            boolean contains = userInput.toLowerCase().contains(keyword.toLowerCase());
+            if (contains) {
                 return (String) responses.get(keyword);
             }
-            if (userInput.toLowerCase().contains(keyword.toLowerCase())) {
-                MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
-                Document document = collection.find(eq("term", userInput)).first();
-                if (!document.isEmpty()) {
-                    return document.getString("definition");
-                }
-            }
         }
+
+        MongoCollection<Document> collection = establishDatabaseConnection().getCollection("externe-gegevens");
+        Document doc = collection.find(eq("term", userInput.toLowerCase())).first();
+        if (doc != null) {
+            return doc.getString("definition");
+        }
+
         return "Sorry, I don't have that in my database!";
     }
 
