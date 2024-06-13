@@ -1,3 +1,4 @@
+
 package org.example.system42;
 
 import classes.*;
@@ -111,6 +112,7 @@ public class ChatPaginaController {
                 }
             });
         }
+
     }
 
     @FXML
@@ -126,6 +128,27 @@ public class ChatPaginaController {
                 switchToSession(nextSessionId);
             }
         }
+    }
+
+    public void createNewSession() {
+        String sessie;
+
+        if(LocalizationHelper.getCurrentLocale().getLanguage().equals("nl")){
+            sessie = "Sessie";
+        }else{
+            sessie = "Session";
+        }
+        sessieBox.setSpacing(5);
+        int newSessionId = ++sessionCounter;
+        Sessie newSession = new Sessie(newSessionId, "Sessie " + newSessionId);
+        newSession.getSessionButton().setOnAction(e -> switchToSession(newSessionId));
+
+        sessions.put(newSessionId, newSession);
+        SessieStore.getInstance().addSession(newSession); // Add session to SessionStore
+
+        sessieBox.setPadding(new Insets(6, 0, 0, 6));
+        sessieBox.getChildren().add(newSession.getSessionButton());
+        switchToSession(newSessionId);
     }
 
     @FXML
@@ -154,20 +177,8 @@ public class ChatPaginaController {
             chatArea.appendText("No session selected. Please create or select a session.\n");
             return;
         }
-       Message.completeMessage(sessions, chatBox, chatArea, currentSessionId);
-//        String message = chatBox.getText();
-//        chatArea.appendText("Gebruiker: " + message + "\n");
-//        String response = Assistant.getResponse(message);
-//        chatArea.appendText("Assistant: " + response + "\n\n");
-//        chatBox.clear();
-//
-//        Sessie currentSession = sessions.get(currentSessionId);
-//        if (currentSession != null) {
-//            TextArea textArea = new TextArea("Gebruiker: " + message + "\nA.I. Assistant: " + response + "\n");
-//            textArea.setEditable(false);
-//            textArea.setWrapText(true);
-//            currentSession.getSessionBox().getChildren().add(textArea);
-//        }
+        Message.completeMessage(sessions, chatBox, chatArea, currentSessionId);
+
     }
 
     private void switchToSession(int sessionId) {
@@ -178,12 +189,4 @@ public class ChatPaginaController {
             session.getSessionBox().getChildren().forEach(node -> chatArea.appendText(((TextArea) node).getText()));
         }
     }
-
-//    private void loadResponses() {
-//        ReaderWriter.OfflineJsonLoader();
-//    }
-//
-//    private static String getResponse(String userInput) {
-//        return ReaderWriter.OfflineJsonReader(userInput);
-//    }
 }

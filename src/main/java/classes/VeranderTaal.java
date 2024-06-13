@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Locale;
+
 public interface VeranderTaal {
-    public String updateTaal();
+    public void updateTaal();
 }

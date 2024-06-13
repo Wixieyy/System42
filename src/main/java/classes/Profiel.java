@@ -9,7 +9,8 @@ import java.util.Locale;
 import static classes.Login.gebruikerID;
 import static com.mongodb.client.model.Filters.eq;
 
-public class Profiel {
+public class Profiel implements VeranderTaal{
+
 
     public static void changeLanguage(Locale locale) {
         LocalizationHelper.setLocale(locale);
@@ -42,6 +43,12 @@ public class Profiel {
                 checkPassword = false;
             }
         }
+    }
+    @Override
+    public void updateTaal(){
+        Locale locale = null;
+        ProfielController profielController = new ProfielController();
+        profielController.setLanguage(locale);
     }
 }
 

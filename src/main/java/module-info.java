@@ -11,6 +11,7 @@ module org.example.system42 {
     requires org.mongodb.driver.core;
     requires json.simple;
     requires java.mail;
+    requires com.google.gson;
 
     opens org.example.system42 to javafx.fxml;
     exports org.example.system42;
