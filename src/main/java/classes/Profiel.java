@@ -39,11 +39,13 @@ public class Profiel implements VeranderTaal{
             if (!wachtwoordField.isEmpty()) {
                 collection.updateOne(eq("_id", gebruikerID), new Document("$set", new Document("password", wachtwoordField)));
             } else {
-                System.out.println("Passwords are not equal");
-                checkPassword = false;
+                System.out.println("User not found");
             }
+        } else {
+            System.out.println("Passwords do not match");
         }
     }
+
     @Override
     public void updateTaal(){
         Locale locale = null;
