@@ -55,7 +55,14 @@ An internal company AI Assistant with a GUI that allows employees sends prompts 
 
 ## Screenshots
 
-<img src="#" alt="temp" width="auto" height="auto" style="max-width: 100%;">
+<img src="https://github.com/Wixieyy/System42/assets/153095844/7d0df36a-90b1-4e2a-baea-dd46051da063" alt="login screen" width="49%" height="auto">
+<img src="https://github.com/Wixieyy/System42/assets/153095844/b0b007da-9b8f-49a9-a642-557b4561accd" alt="login screen" width="49%" height="auto">
+
+<img src="https://github.com/Wixieyy/System42/assets/153095844/43959afc-3e63-405e-b3f6-cfd2729a7661" alt="login screen" width="49%" height="auto">
+<img src="https://github.com/Wixieyy/System42/assets/153095844/7691b1d6-d1f1-4617-8f53-e97e0e335270" alt="login screen" width="49%" height="auto">
+
+<img src="https://github.com/Wixieyy/System42/assets/153095844/29d65819-da09-4db8-b0d8-78b393b440f1" alt="chat page" width="49%" height="auto">
+<img src="https://github.com/Wixieyy/System42/assets/153095844/5391871d-0e48-4955-a161-f7c6251c7c8e" alt="chat page2" width="49%" height="auto">
 
 ## Installation
 

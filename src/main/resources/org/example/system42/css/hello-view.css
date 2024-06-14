@@ -1,3 +1,46 @@
+@font-face {
+    font-family: DINPro-Bold;
+    src: url("DINPro-Bold.ttf");
+}
+@font-face {
+    font-family: DINPro-Black;
+    src: url('DINPro-Black.ttf');
+}
+@font-face {
+    font-family: DINPro-Light;
+    src: url('DINPro-Light.ttf');
+}
+@font-face {
+    font-family: DINPro-Medium;
+    src: url('DINPro-Medium.ttf');
+}
+
+* {
+    -fx-font-smoothing-type: gray;
+}
+
+.text-field:hover,
+.text-field:focused {
+    -fx-font-size: 16px; /* Adjust to your preferred font size */
+}
+
+.button {
+    -fx-font-size: 22px;
+}
+
+.check-box, .hyperlink {
+    -fx-font-size: 14px;
+}
+
+.text-field, #passwordField, #passwordTextField {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+#passwordTextField {
+    -fx-border-color: white;
+}
+
 #aanmakAccountButton,
 #wachtwoordVergetenButton {
     -fx-text-fill: #4b4b4b;
@@ -10,4 +53,13 @@
 
 #exitButton:focused {
     -fx-focus-color: transparent;
+}
+
+.AnchorPane {
+    -fx-background-color: linear-gradient(to top right, rgba(255,41,255,1) 0%, rgba(0,0,255,1) 100%);
+}
+
+#nieuweSessieButton, #nieuweSessieButton:hover, #nieuweSessieButton:pressed, #nieuweSessieButton:focused {
+    -fx-font-family: 'DINPro-Bold';
+    -fx-font-size: 22px;
 }

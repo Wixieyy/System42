@@ -1,43 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="421.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.profielController">
+<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="421.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.system42.ProfielController">
    <children>
-      <Text layoutX="277.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel" wrappingWidth="192.583984375">
+      <Text fx:id="profielText" layoutX="291.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profiel" wrappingWidth="217.583984375">
          <font>
-            <Font name="Times New Roman" size="68.0" />
+            <Font name="DINPro-Bold" size="68.0" />
          </font>
       </Text>
-      <MenuButton layoutX="586.0" layoutY="23.0" mnemonicParsing="false" text="Taal">
+      <MenuButton fx:id="taalSlider" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Taal">
         <items>
-          <MenuItem mnemonicParsing="false" onAction="#taalEnglish" text="English" />
-          <MenuItem mnemonicParsing="false" onAction="#taalNederlands" text="Nederlands" />
+          <MenuItem fx:id="itemEN" mnemonicParsing="false" onAction="#taalEnglish" text="English" />
+          <MenuItem fx:id="itemNL" mnemonicParsing="false" onAction="#taalNederlands" text="Nederlands" />
         </items>
-      </MenuButton>
-      <Button layoutX="713.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Ga terug" />
-      <Button layoutX="277.0" layoutY="441.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="180.0" style="-fx-background-radius: 15;" text="Verander profiel">
          <font>
-            <Font name="Times New Roman" size="20.0" />
+            <Font name="DINPro-Bold" size="15.0" />
+         </font>
+      </MenuButton>
+      <Button fx:id="backButton" layoutX="583.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="31.0" prefWidth="89.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-insets: -1;" text="Ga terug">
+         <font>
+            <Font name="DINPro-Bold" size="15.0" />
+         </font></Button>
+      <TextField fx:id="gebruikersnaamField" editable="false" layoutX="230.0" layoutY="237.0" prefHeight="60.0" prefWidth="338.0" style="-fx-font-family: DINPro-Light;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </TextField>
+      <Label fx:id="gebruikersnaam" layoutX="241.0" layoutY="237.0" style="-fx-font-family: DINPro-Light;" text="Gebruikersnaam" textFill="#c6c6c6">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="238.0" layoutX="331.0" layoutY="296.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="332.0" layoutY="237.0" startX="236.0" startY="235.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="-6.0" layoutY="237.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <TextField fx:id="accountIDField" editable="false" layoutX="230.0" layoutY="178.0" prefHeight="60.0" prefWidth="338.0" style="-fx-font-family: DINPro-Light;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </TextField>
+      <Label fx:id="accountID" layoutX="241.0" layoutY="178.0" style="-fx-font-family: DINPro-Light;" text="Account ID" textFill="#c6c6c6">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="236.0" layoutX="331.0" layoutY="237.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="331.0" layoutY="178.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="331.0" layoutY="178.0" startX="237.0" startY="58.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="-6.0" layoutY="178.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <TextField fx:id="beroepField" editable="false" layoutX="230.0" layoutY="355.0" prefHeight="60.0" prefWidth="338.0" style="-fx-font-family: DINPro-Light;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </TextField>
+      <Label fx:id="beroep" layoutX="241.0" layoutY="355.0" style="-fx-font-family: DINPro-Light;" text="Beroep" textFill="#c6c6c6">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="237.0" layoutX="331.0" layoutY="414.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="-6.0" layoutY="355.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <TextField fx:id="emailField" editable="false" layoutX="230.0" layoutY="296.0" prefHeight="60.0" prefWidth="338.0" style="-fx-font-family: DINPro-Light;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </TextField>
+      <Label fx:id="emailAdres" layoutX="241.0" layoutY="296.0" style="-fx-font-family: DINPro-Light;" text="Email address" textFill="#c6c6c6">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="236.0" layoutX="331.0" layoutY="355.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="331.0" layoutY="296.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="-6.0" layoutY="296.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <TextField fx:id="afdelingField" editable="false" layoutX="230.0" layoutY="414.0" prefHeight="60.0" prefWidth="338.0" style="-fx-font-family: DINPro-Light;">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </TextField>
+      <Label fx:id="afdeling" layoutX="241.0" layoutY="414.0" style="-fx-font-family: DINPro-Light;" text="Afdeling" textFill="#c6c6c6">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="237.0" layoutX="331.0" layoutY="473.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Line endX="236.0" layoutX="-6.0" layoutY="414.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
+      <Button fx:id="veranderProfielButton" layoutX="297.0" layoutY="503.0" mnemonicParsing="false" onAction="#onProfielBewerkenButton" prefHeight="48.0" prefWidth="203.0" style="-fx-background-color: #ff29ff; -fx-font-family: DINPro-Bold;" text="Verander Profiel" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
          </font>
       </Button>
-      <Text layoutX="71.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gebruikersnaam:">
+      <Button fx:id="logoutButton" layoutX="686.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="30.0" prefWidth="100.0" style="-fx-border-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-background-radius: 10; -fx-background-color: FF29FF;" text="Uitloggen" textFill="WHITE">
          <font>
-            <Font name="Times New Roman" size="27.0" />
+            <Font name="DINPro-Bold" size="15.0" />
          </font>
-      </Text>
-      <Text layoutX="121.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email adres:">
-         <font>
-            <Font name="Times New Roman" size="27.0" />
-         </font>
-      </Text>
-      <TextField fx:id="gebrukersnaamField" layoutX="271.0" layoutY="181.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15;" />
-      <TextField fx:id="emailField" layoutX="271.0" layoutY="309.0" prefHeight="33.0" prefWidth="193.0" style="-fx-background-radius: 15;" />
+      </Button>
    </children>
 </AnchorPane>
