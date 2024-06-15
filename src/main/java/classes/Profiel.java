@@ -12,11 +12,11 @@ import static com.mongodb.client.model.Filters.eq;
 public class Profiel implements VeranderTaal{
 
 
-    public static void changeLanguage(Locale locale) {
-        LocalizationHelper.setLocale(locale);
-        ProfielController controller = new ProfielController();
-        controller.setLanguage(locale);
-    }
+//    public static void changeLanguage(Locale locale) {
+//        LocalizationHelper.setLocale(locale);
+//        ProfielController controller = new ProfielController();
+//        controller.setLanguage(locale);
+//    }
 
     public static void changeProfile(boolean checkPassword, String wachtwoordField, String herhaalWachtwoordField, String gebruikersnaamField, String emailadresField, String beroepField, String afdelingField) {
         MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");

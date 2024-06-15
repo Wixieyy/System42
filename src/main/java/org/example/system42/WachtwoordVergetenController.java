@@ -58,8 +58,6 @@ public class WachtwoordVergetenController {
     @FXML
     public void setLanguage(Locale locale) {
         bundle = ResourceBundle.getBundle("languages.lan", locale);
-
-
         forgotPasswordText.setText(bundle.getString("text.titel"));
         emailText.setText(bundle.getString("text.instructions"));
         opslaanButton.setText(bundle.getString("button.save"));

@@ -9,7 +9,7 @@ public class EmailService {
 
     public void sendEmail(String to, String subject, String content) {
         final String username = "vuzzeh@gmail.com"; // Sender email account
-        final String password = "mpec qmfq gkhl igda"; // Sender account password
+        final String password = "bpdm swjj usyi tdnl"; // Sender account password
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
