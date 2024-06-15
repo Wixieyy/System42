@@ -141,6 +141,8 @@ public class HelloController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(newTemplate, 1000, 720));
             stage.show();
+
+            stage.centerOnScreen();
         } else {
             System.out.println("Wrong credentials");
         }
