@@ -54,6 +54,10 @@ public class WachtwoordVergetenController {
 
     public void initialize() {
         setLanguage(LocalizationHelper.getCurrentLocale());
+        gebruikersnaamField.setStyle("-fx-font-size: 16px;");
+        emailField.setStyle("-fx-font-size: 16px;");
+        emailField.setStyle("-fx-font-size: 16px;");
+        opslaanButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff;");
     }
     @FXML
     public void setLanguage(Locale locale) {
