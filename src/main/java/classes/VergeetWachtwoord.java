@@ -8,7 +8,7 @@ import static com.mongodb.client.model.Filters.eq;
 public class VergeetWachtwoord {
 
     public static void wachtwoordVergeten(String email) {
-        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("email");
+        MongoCollection<Document> collection = ReaderWriter.establishDatabaseConnection().getCollection("login-credentials");
 
         Document document = collection.find(eq("email", email)).first();
         if (document != null) {

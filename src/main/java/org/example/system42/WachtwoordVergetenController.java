@@ -64,7 +64,7 @@ public class WachtwoordVergetenController {
         bundle = ResourceBundle.getBundle("languages.lan", locale);
         forgotPasswordText.setText(bundle.getString("text.titel"));
         emailText.setText(bundle.getString("text.instructions"));
-        opslaanButton.setText(bundle.getString("button.save"));
+        opslaanButton.setText(bundle.getString("button.send"));
         loginButton.setText(bundle.getString("button.login_page"));
         gebruikersnaamLabel.setText(bundle.getString("label.gebruikersnaam"));
     }
