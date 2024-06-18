@@ -1,44 +1,32 @@
 package classes;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Properties;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 
 public class EmailService {
 
     public void sendEmail(String to, String subject, String content) {
         final String username = "vuzzeh@gmail.com"; // Sender email account
-        final String password = "mpec qmfq gkhl igda"; // Sender account password
-
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true"); //TLS
-
-        Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {return new PasswordAuthentication(username, password);
-                    }
-                });
+        final String password = "bfzd hwpm gwho vcks"; // App password
 
         try {
-            javax.mail.Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("vuzzeh@gmail.com"));
-            message.setRecipients(
-                    javax.mail.Message.RecipientType.TO,
-                    InternetAddress.parse(to)
-            );
-            message.setSubject(subject);
-            message.setText(content);
-
-            Transport.send(message);
+            SimpleEmail email = new SimpleEmail();
+            email.setHostName("smtp.gmail.com");
+            email.setSmtpPort(587);
+            email.setAuthenticator(new org.apache.commons.mail.DefaultAuthenticator(username, password));
+            email.setStartTLSRequired(true);
+            email.setFrom(username);
+            email.setSubject(subject);
+            email.setMsg(content);
+            email.addTo(to);
+            email.send();
 
             System.out.println("Email sent.");
 
-        } catch (MessagingException e) {
+        } catch (EmailException e) {
             e.printStackTrace();
+            System.err.println("Failed to send email: " + e.getMessage());
         }
     }
 }

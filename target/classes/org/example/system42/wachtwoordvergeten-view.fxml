@@ -59,7 +59,7 @@
       <Line endX="236.0" layoutX="322.0" layoutY="263.0" startX="-101.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="322.0" layoutY="263.0" startX="237.0" startY="58.0" stroke="#c6c6c6" strokeWidth="2.0" />
       <Line endX="236.0" layoutX="-15.0" layoutY="263.0" startX="236.0" startY="59.0" stroke="#c6c6c6" strokeWidth="2.0" />
-      <Button fx:id="loginButton" layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLoginpaginaButtonClick" prefHeight="33.0" prefWidth="113.0" style="-fx-border-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-background-radius: 10; -fx-background-color: FF29FF;" text="Login pagina">
+      <Button fx:id="loginButton" layoutX="673.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLoginpaginaButtonClick" prefHeight="33.0" prefWidth="113.0" style="-fx-border-radius: 10; -fx-border-color: black; -fx-border-insets: -1; -fx-border-width: 2; -fx-background-radius: 10; -fx-background-color: FF29FF;" text="Login pagina" textFill="WHITE">
          <font>
             <Font name="DINPro-Bold" size="15.0" />
          </font>

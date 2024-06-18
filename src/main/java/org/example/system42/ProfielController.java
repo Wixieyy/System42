@@ -1,14 +1,9 @@
 package org.example.system42;
 
-import classes.Profiel;
 import classes.LocalizationHelper;
-import classes.Gebruiker;
 import classes.Login;
 import classes.ReaderWriter;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,31 +34,25 @@ public class ProfielController {
     @FXML
     private TextField afdelingField;
     @FXML
-    private  Button veranderProfielButton;
+    private Button veranderProfielButton;
     @FXML
-    private  Text profielText;
+    private Text profielText;
     @FXML
-    private  Button backButton;
+    private Button backButton;
     @FXML
-    private  Button logoutButton;
+    private Button logoutButton;
     @FXML
-    private  MenuButton taalSlider;
+    private MenuButton taalSlider;
     @FXML
-    private  MenuItem itemEN;
+    private MenuItem itemEN;
     @FXML
     private MenuItem itemNL;
     @FXML
-    private Label accountID;
-    @FXML
     private Label gebruikersnaam;
-    @FXML
-    private Label emailAdres;
     @FXML
     private Label beroep;
     @FXML
     private Label afdeling;
-
-    private ResourceBundle bundle;
 
     @FXML
     public void initialize() {
@@ -78,8 +67,7 @@ public class ProfielController {
     }
 
     public void setLanguage(Locale locale) {
-
-        bundle = ResourceBundle.getBundle("languages.lan", locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("languages.lan", locale);
         profielText.setText(bundle.getString("label.profile"));
         gebruikersnaam.setText(bundle.getString("label.gebruikersnaam"));
         beroep.setText(bundle.getString("label.profession"));
@@ -142,18 +130,19 @@ public class ProfielController {
 
 
     @FXML
-    public void taalEnglish(ActionEvent actionEvent) {
+    public void taalEnglish() {
         System.out.println("Language set to English");
-        Profiel.changeLanguage(new Locale("en"));
+        changeLanguage(new Locale("en"));
     }
 
     @FXML
-    public  void taalNederlands(ActionEvent actionEvent) {
+    public void taalNederlands() {
         System.out.println("Taal veranderd naar Nederlands");
-        Profiel.changeLanguage(new Locale("nl"));
+        changeLanguage(new Locale("nl"));
     }
-//    private void changeLanguage(Locale locale) {
-//        LocalizationHelper.setLocale(locale);
-//        setLanguage(locale);
-//    }
+
+    private void changeLanguage(Locale locale) {
+        LocalizationHelper.setLocale(locale);
+        setLanguage(locale);
+    }
 }

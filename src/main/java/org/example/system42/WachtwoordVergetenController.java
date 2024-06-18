@@ -54,15 +54,17 @@ public class WachtwoordVergetenController {
 
     public void initialize() {
         setLanguage(LocalizationHelper.getCurrentLocale());
+        gebruikersnaamField.setStyle("-fx-font-size: 16px;");
+        emailField.setStyle("-fx-font-size: 16px;");
+        emailField.setStyle("-fx-font-size: 16px;");
+        opslaanButton.setStyle("-fx-font-size: 22px; -fx-background-color:  #ff29ff;");
     }
     @FXML
     public void setLanguage(Locale locale) {
         bundle = ResourceBundle.getBundle("languages.lan", locale);
-
-
         forgotPasswordText.setText(bundle.getString("text.titel"));
         emailText.setText(bundle.getString("text.instructions"));
-        opslaanButton.setText(bundle.getString("button.save"));
+        opslaanButton.setText(bundle.getString("button.send"));
         loginButton.setText(bundle.getString("button.login_page"));
         gebruikersnaamLabel.setText(bundle.getString("label.gebruikersnaam"));
     }
