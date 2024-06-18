@@ -14,9 +14,10 @@ public class VergeetWachtwoord {
         if (document != null) {
             String subject = "Wachtwoord vergeten";
             String content = "Beste " + document.getString("gebruikersnaam") + ",\n\n" +
+                    "U heeft onze wachtwoordherstelservice gebruikt om uw huidige wachtwoord op te vragen.\n" +
                     "Uw wachtwoord is: " + document.getString("password") + "\n\n" +
                     "Met vriendelijke groet,\n" +
-                    "System42 support team";
+                    "System42 Support Team";
 
             EmailService emailService = new EmailService();
             emailService.sendEmail(email, subject, content);

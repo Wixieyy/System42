@@ -7,8 +7,8 @@ import org.apache.commons.mail.SimpleEmail;
 public class EmailService {
 
     public void sendEmail(String to, String subject, String content) {
-        final String username = ""; // Sender email account
-        final String password = ""; // App-specific password
+        final String username = "vuzzeh@gmail.com"; // Sender email account
+        final String password = "bfzd hwpm gwho vcks"; // App password
 
         try {
             SimpleEmail email = new SimpleEmail();
